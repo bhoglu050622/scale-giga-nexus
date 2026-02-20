@@ -63,35 +63,32 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        electric: {
-          50: "hsl(232 100% 97%)",
-          100: "hsl(232 95% 93%)",
-          200: "hsl(232 92% 85%)",
-          300: "hsl(232 90% 75%)",
-          400: "hsl(232 90% 68%)",
-          500: "hsl(232 90% 65%)",
-          600: "hsl(232 85% 55%)",
-          700: "hsl(240 80% 45%)",
-          800: "hsl(240 75% 35%)",
-          900: "hsl(240 70% 25%)",
+        // Neon green palette
+        neon: {
+          50:  "hsl(142 100% 96%)",
+          100: "hsl(142 90% 88%)",
+          200: "hsl(142 85% 75%)",
+          300: "hsl(142 82% 62%)",
+          400: "hsl(142 80% 52%)",
+          500: "hsl(142 80% 45%)",
+          600: "hsl(145 75% 36%)",
+          700: "hsl(150 70% 28%)",
+          800: "hsl(155 65% 20%)",
+          900: "hsl(160 60% 14%)",
         },
-        cyan: {
-          50: "hsl(190 100% 97%)",
-          100: "hsl(190 100% 90%)",
-          200: "hsl(190 100% 80%)",
-          300: "hsl(190 100% 65%)",
-          400: "hsl(190 100% 55%)",
-          500: "hsl(190 100% 50%)",
-        },
-        violet: {
-          light: "hsl(260 80% 80%)",
-          DEFAULT: "hsl(260 80% 65%)",
-          dark: "hsl(260 75% 50%)",
-        },
-        charcoal: {
-          DEFAULT: "hsl(220 20% 12%)",
-          light: "hsl(220 15% 20%)",
-          muted: "hsl(220 12% 35%)",
+        // Jet black palette
+        jet: {
+          DEFAULT: "hsl(0 0% 4%)",
+          50:  "hsl(0 0% 96%)",
+          100: "hsl(0 0% 90%)",
+          200: "hsl(0 0% 75%)",
+          300: "hsl(0 0% 55%)",
+          400: "hsl(0 0% 38%)",
+          500: "hsl(0 0% 25%)",
+          600: "hsl(0 0% 16%)",
+          700: "hsl(0 0% 10%)",
+          800: "hsl(0 0% 7%)",
+          900: "hsl(0 0% 4%)",
         },
       },
       borderRadius: {
@@ -135,8 +132,8 @@ export default {
           "50%": { transform: "translateY(-10px) rotate(3deg)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(232 90% 65% / 0.3)" },
-          "50%": { boxShadow: "0 0 50px hsl(232 90% 65% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(142 80% 45% / 0.3)" },
+          "50%": { boxShadow: "0 0 60px hsl(142 80% 45% / 0.7)" },
         },
         "spin-slow": {
           from: { transform: "rotate(0deg)" },
@@ -153,9 +150,6 @@ export default {
         "blob-morph": {
           "0%, 100%": { borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" },
           "50%": { borderRadius: "30% 60% 70% 40% / 50% 60% 30% 60%" },
-        },
-        "draw-line": {
-          to: { strokeDashoffset: "0" },
         },
       },
       animation: {
