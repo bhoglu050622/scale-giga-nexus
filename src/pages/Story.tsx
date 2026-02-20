@@ -1,0 +1,216 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Target, Lightbulb, TrendingUp, Cpu, Handshake } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
+import { StoryIllustration } from "@/components/Illustrations";
+
+const values = [
+  {
+    icon: <TrendingUp size={20} />,
+    title: "Growth-Driven Thinking",
+    desc: "Every decision we make is measured against one question: will this drive growth? We prioritize high-impact actions over busywork.",
+  },
+  {
+    icon: <Lightbulb size={20} />,
+    title: "Design with Purpose",
+    desc: "Beautiful isn't enough. Every design element must serve a strategic function — whether that's building trust, driving clicks, or communicating value.",
+  },
+  {
+    icon: <Target size={20} />,
+    title: "Performance over Vanity",
+    desc: "We care about metrics that matter: revenue, leads, retention — not just impressions and follower counts.",
+  },
+  {
+    icon: <Cpu size={20} />,
+    title: "Innovation First",
+    desc: "We actively adopt new technologies — AI, automation, emerging platforms — so our clients stay ahead of the curve.",
+  },
+  {
+    icon: <Handshake size={20} />,
+    title: "Long-Term Partnerships",
+    desc: "We don't close deals, we build relationships. Our success is tied directly to yours — and we operate that way every day.",
+  },
+];
+
+const team = [
+  { name: "Alex Rivera", role: "Founder & Growth Strategist", init: "AR" },
+  { name: "Priya Nair", role: "Head of Creative", init: "PN" },
+  { name: "James Wu", role: "Lead Developer", init: "JW" },
+  { name: "Sofia Mendez", role: "Performance Marketing Lead", init: "SM" },
+  { name: "Liam Okafor", role: "AI & Automation Engineer", init: "LO" },
+  { name: "Emma Chen", role: "Brand Strategist", init: "EC" },
+];
+
+export default function Story() {
+  return (
+    <main className="pt-24">
+      {/* Hero */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 dot-pattern opacity-30" />
+        <div className="absolute top-0 left-0 w-[600px] h-[400px] rounded-full bg-electric-100/40 blur-3xl -translate-x-1/3 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-cyan-100/30 blur-3xl translate-x-1/4 translate-y-1/2" />
+
+        <div className="section-container relative z-10 max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Our Story</p>
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-7 leading-tight">
+              Building Digital Foundations for the{" "}
+              <span className="text-gradient">Next Generation</span> of Brands
+            </h1>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
+              ScaleGiga was founded with a simple belief: great digital experiences build great businesses. We partner with ambitious brands to design, build, and scale digital systems that create long-term growth.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Timeline illustration */}
+      <section className="py-10">
+        <div className="section-container max-w-3xl mx-auto">
+          <ScrollReveal>
+            <div className="h-[220px] rounded-3xl bg-gradient-hero border border-border/50 shadow-card p-8">
+              <StoryIllustration />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Story content */}
+      <section className="py-16">
+        <div className="section-container max-w-3xl mx-auto">
+          <ScrollReveal>
+            <div className="prose prose-gray max-w-none">
+              <p className="text-muted-foreground text-base leading-relaxed mb-6">
+                We combine strategy, technology, creativity, and automation to solve real business problems — not just create good-looking websites. We believe digital shouldn't be siloed: your website, your ads, your brand, and your automation systems should all work together as one intelligent growth engine.
+              </p>
+              <p className="text-muted-foreground text-base leading-relaxed mb-6">
+                Since our founding, we've worked with startups, scale-ups, and established brands across industries — from e-commerce and SaaS to professional services and consumer brands. What unites all of them is ambition: they want to grow, and they know digital is the path.
+              </p>
+              <p className="text-muted-foreground text-base leading-relaxed">
+                We don't believe in one-size-fits-all solutions. Every engagement starts with deep discovery — understanding your business model, your audience, your competitive landscape, and your goals. Only then do we build a digital system designed specifically for you.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-16 bg-muted/30">
+        <div className="section-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <ScrollReveal delay={0}>
+              <div className="p-10 rounded-3xl bg-gradient-primary text-white shadow-lg-electric relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-white/5 blur-2xl" />
+                <p className="text-xs font-semibold font-display uppercase tracking-widest text-white/60 mb-4">Our Mission</p>
+                <h2 className="font-display text-2xl font-bold mb-4 leading-tight">
+                  Help Businesses Grow Through Powerful Digital Systems
+                </h2>
+                <p className="text-white/75 text-sm leading-relaxed">
+                  Our mission is to help businesses grow through powerful digital systems that are fast, scalable, and measurable — turning digital investment into compounding returns.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <div className="p-10 rounded-3xl border border-border/60 bg-card shadow-card relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-electric-50 blur-2xl" />
+                <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Vision</p>
+                <h2 className="font-display text-2xl font-bold mb-4 leading-tight text-foreground">
+                  A Globally Trusted Digital Growth Partner
+                </h2>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  To become a globally trusted digital growth partner for brands that want to scale with clarity, creativity, and technology — building the digital infrastructure of tomorrow's industry leaders.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-24">
+        <div className="section-container">
+          <ScrollReveal className="text-center mb-16">
+            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Values</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
+              The Principles That{" "}
+              <span className="text-gradient">Drive Us</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Our values aren't a wall poster — they're the operating system behind every decision, deliverable, and relationship we build.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {values.map((v, i) => (
+              <ScrollReveal key={v.title} delay={i * 0.08}>
+                <div className="service-card h-full p-7 rounded-3xl bg-card border border-border/60 shadow-card">
+                  <div className="w-11 h-11 rounded-2xl bg-electric-50 border border-electric-100 flex items-center justify-center text-primary mb-5">
+                    {v.icon}
+                  </div>
+                  <h3 className="font-display font-semibold text-foreground mb-3">{v.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-24 bg-muted/30">
+        <div className="section-container">
+          <ScrollReveal className="text-center mb-16">
+            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Team</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
+              The Minds Behind{" "}
+              <span className="text-gradient">ScaleGiga</span>
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto">
+              A multidisciplinary team of strategists, designers, engineers, and marketers — united by a passion for building things that grow.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+            {team.map((member, i) => (
+              <ScrollReveal key={member.name} delay={i * 0.07} className="text-center">
+                <div className="mx-auto w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white font-display font-bold text-lg mb-3 shadow-md-electric">
+                  {member.init}
+                </div>
+                <p className="font-display font-semibold text-sm text-foreground">{member.name}</p>
+                <p className="text-xs text-muted-foreground mt-0.5 leading-tight">{member.role}</p>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="section-container text-center max-w-2xl mx-auto">
+          <ScrollReveal>
+            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Ready to Partner With Us?</p>
+            <h2 className="font-display text-4xl font-bold text-foreground mb-5">
+              Let's Build Your Next Chapter
+            </h2>
+            <p className="text-muted-foreground mb-10 leading-relaxed">
+              Whether you're starting from scratch or scaling an established brand, we're ready to become your digital growth partner.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/contact" className="btn-glow inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-white font-display">
+                Start a Project <ArrowRight size={17} />
+              </Link>
+              <Link to="/services" className="btn-outline-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold font-display">
+                Explore Services
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    </main>
+  );
+}
