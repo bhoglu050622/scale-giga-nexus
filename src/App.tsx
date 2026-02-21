@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Story from "./pages/Story";
 import Work from "./pages/Work";
+import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/story" element={<Story />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
