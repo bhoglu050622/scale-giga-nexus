@@ -14,9 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
+        display: ['"DM Serif Display"', 'serif'],
         body: ['Inter', 'sans-serif'],
-        logo: ['"Outfit"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -64,18 +63,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Neon green palette
-        neon: {
-          50:  "hsl(142 100% 96%)",
-          100: "hsl(142 90% 88%)",
-          200: "hsl(142 85% 75%)",
-          300: "hsl(142 82% 62%)",
-          400: "hsl(142 80% 52%)",
-          500: "hsl(142 80% 45%)",
-          600: "hsl(145 75% 36%)",
-          700: "hsl(150 70% 28%)",
-          800: "hsl(155 65% 20%)",
-          900: "hsl(160 60% 14%)",
+        // Gold palette
+        gold: {
+          50:  "hsl(43 100% 96%)",
+          100: "hsl(43 90% 88%)",
+          200: "hsl(43 85% 75%)",
+          300: "hsl(43 82% 62%)",
+          400: "hsl(43 80% 52%)",
+          500: "hsl(43 80% 49%)",
+          600: "hsl(38 75% 40%)",
+          700: "hsl(35 70% 32%)",
+          800: "hsl(33 65% 22%)",
+          900: "hsl(30 60% 14%)",
         },
         // Jet black palette
         jet: {
@@ -133,8 +132,8 @@ export default {
           "50%": { transform: "translateY(-10px) rotate(3deg)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(142 80% 45% / 0.3)" },
-          "50%": { boxShadow: "0 0 60px hsl(142 80% 45% / 0.7)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(43 80% 49% / 0.3)" },
+          "50%": { boxShadow: "0 0 60px hsl(43 80% 49% / 0.7)" },
         },
         "spin-slow": {
           from: { transform: "rotate(0deg)" },
