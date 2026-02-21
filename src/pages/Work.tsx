@@ -97,7 +97,7 @@ export default function Work() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Our Work</p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
               Selected Work &{" "}
               <span className="text-gradient">Capabilities</span>
             </h1>

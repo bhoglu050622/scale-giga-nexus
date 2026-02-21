@@ -81,7 +81,7 @@ export default function Contact() {
             transition={{ duration: 0.7 }}
           >
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Get In Touch</p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
               Let's Build Something<br />
               <span className="text-gradient">That Scales</span>
             </h1>

@@ -65,7 +65,7 @@ export default function Story() {
             transition={{ duration: 0.7 }}
           >
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Our Story</p>
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-7 leading-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-7 leading-tight">
               Building Digital Foundations for the{" "}
               <span className="text-gradient">Next Generation</span> of Brands
             </h1>
