@@ -86,7 +86,7 @@ export default function Index() {
         <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-electric-100/60 via-violet-light/20 to-cyan-100/30 blur-3xl -translate-y-1/3 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-cyan-100/40 to-electric-100/20 blur-3xl translate-y-1/2 -translate-x-1/4" />
 
-        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left */}
           <div>
             <motion.div
@@ -140,7 +140,7 @@ export default function Index() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.5 }}
-              className="grid grid-cols-4 gap-6 mt-14 pt-10 border-t border-border/60"
+              className="grid grid-cols-4 gap-6 mt-8 pt-6 border-t border-border/60"
             >
               {metrics.map((m) => (
                 <div key={m.label}>
