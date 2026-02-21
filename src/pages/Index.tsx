@@ -100,7 +100,7 @@ export default function Index() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-6">
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-28 sm:pt-24 pb-6">
         {/* Background with parallax */}
         <motion.div className="absolute inset-0 dot-pattern opacity-40" style={{ y: heroParallaxY }} />
         <motion.div
@@ -132,7 +132,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight text-foreground mb-7"
+              className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight text-foreground mb-7"
             >
               We Build Digital{" "}
               <span className="text-gradient">Systems That</span>{" "}
@@ -171,7 +171,7 @@ export default function Index() {
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-4 gap-6 mt-8 pt-6 border-t border-border/60"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-8 pt-6 border-t border-border/60"
             >
               {metrics.map((m) => (
                 <motion.div key={m.label} variants={staggerItem}>
@@ -187,7 +187,7 @@ export default function Index() {
             initial={{ opacity: 0, scale: 0.9, rotateY: -5 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative h-[520px] lg:h-[600px]"
+            className="relative h-[320px] sm:h-[420px] lg:h-[600px]"
             style={{ perspective: 800 }}
           >
             <motion.div
@@ -253,7 +253,7 @@ export default function Index() {
 
       {/* ── WHY SCALEGIGA ── */}
       <section className="py-8">
-        <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <ScrollReveal variant="scale">
             <div className="relative h-[380px] rounded-3xl overflow-hidden bg-gradient-hero border border-border/40 shadow-md-electric p-8">
               <motion.div
@@ -383,7 +383,7 @@ export default function Index() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-28 bg-foreground relative overflow-hidden">
+      <section className="py-16 sm:py-28 bg-foreground relative overflow-hidden">
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-3xl"
           animate={{ scale: [1, 1.15, 1] }}
