@@ -224,6 +224,29 @@
   50% { transform: translateY(-10px) rotate(3deg); }
 }
 
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-8px) translateX(4px); }
+  66% { transform: translateY(-4px) translateX(-3px); }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(12px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(12px) rotate(-360deg); }
+}
+
+@keyframes orbit-reverse {
+  0% { transform: rotate(0deg) translateX(8px) rotate(0deg); }
+  100% { transform: rotate(-360deg) translateX(8px) rotate(360deg); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(6px, -8px) scale(1.02); }
+  50% { transform: translate(-4px, -14px) scale(0.98); }
+  75% { transform: translate(8px, -6px) scale(1.01); }
+}
+
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px hsl(142 80% 45% / 0.3); }
   50% { box-shadow: 0 0 60px hsl(142 80% 45% / 0.7); }
@@ -254,9 +277,86 @@
   100% { transform: translateY(100vh); }
 }
 
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.4; filter: blur(20px); }
+  50% { opacity: 0.8; filter: blur(30px); }
+}
+
+@keyframes tilt-3d {
+  0%, 100% { transform: perspective(600px) rotateY(0deg) rotateX(0deg); }
+  25% { transform: perspective(600px) rotateY(2deg) rotateX(-1deg); }
+  75% { transform: perspective(600px) rotateY(-2deg) rotateX(1deg); }
+}
+
+@keyframes scale-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes counter-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-2deg); }
+}
+
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+.animate-float-gentle { animation: float-gentle 10s ease-in-out infinite; }
+.animate-orbit { animation: orbit 15s linear infinite; }
+.animate-orbit-reverse { animation: orbit-reverse 18s linear infinite; }
+.animate-drift { animation: drift 12s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 .animate-blob-morph { animation: blob-morph 8s ease-in-out infinite; }
 .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-glow-breathe { animation: glow-breathe 4s ease-in-out infinite; }
+.animate-tilt-3d { animation: tilt-3d 8s ease-in-out infinite; }
+.animate-scale-breathe { animation: scale-breathe 6s ease-in-out infinite; }
+.animate-counter-float { animation: counter-float 7s ease-in-out infinite; }
+
+/* 3D perspective hover for cards */
+.card-3d {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-3d:hover {
+  transform: perspective(800px) rotateY(-2deg) rotateX(2deg) translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg), 0 20px 40px hsl(142 80% 45% / 0.12);
+}
+
+/* Magnetic hover effect for buttons */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magnetic-hover:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* Icon spin on hover */
+.icon-hover-spin {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-hover-spin:hover {
+  transform: rotate(12deg) scale(1.15);
+}
+
+/* Stagger delay utilities */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
