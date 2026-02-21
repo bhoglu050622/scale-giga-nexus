@@ -200,20 +200,6 @@ export default function Index() {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-xs text-muted-foreground font-medium tracking-widest uppercase">Scroll</span>
-          <motion.div
-            className="w-[1px] h-10 bg-gradient-to-b from-primary/60 to-transparent"
-            animate={{ scaleY: [1, 0.6, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
       </section>
 
       {/* ── SERVICES OVERVIEW ── */}
