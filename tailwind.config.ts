@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
+        logo: ['"Outfit"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
