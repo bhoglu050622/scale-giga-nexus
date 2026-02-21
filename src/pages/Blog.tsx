@@ -183,18 +183,16 @@ export default function Blog() {
               Want More Growth<br />
               <span className="text-gradient">Insights?</span>
             </h2>
-            <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed mb-10">
-              Get in touch to learn how we can help your brand scale with proven digital strategies.
-            </p>
-            <div className="flex flex-wrap justify-center gap-5">
-              <Link to="/contact" className="btn-glow magnetic-hover inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white font-display">
-                Get in Touch
-                <ArrowRight size={17} />
-              </Link>
-              <Link to="/services" className="btn-outline-electric magnetic-hover inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold font-display">
-                Explore Services
-                <ChevronRight size={17} />
-              </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 max-w-xl mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full sm:flex-1 px-5 py-3.5 rounded-2xl bg-card border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
+              />
+              <button className="btn-glow magnetic-hover inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm font-semibold text-white font-display whitespace-nowrap">
+                Subscribe to Newsletter
+                <ArrowRight size={15} />
+              </button>
             </div>
           </ScrollReveal>
         </div>
