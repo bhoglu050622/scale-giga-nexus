@@ -275,7 +275,7 @@ export default function Services() {
       <section className="py-24 bg-foreground">
         <div className="section-container text-center">
           <ScrollReveal>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-black mb-5">
               Not Sure Where to Start?
             </h2>
             <p className="text-black max-w-lg mx-auto mb-10 text-base leading-relaxed">
