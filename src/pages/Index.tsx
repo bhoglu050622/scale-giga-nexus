@@ -378,6 +378,39 @@ export default function Index() {
                 <WorkIllustration />
               </div>
             </AnimatedCard>
+      </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-28 bg-muted/30 relative overflow-hidden">
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-3xl"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div className="section-container relative z-10 text-center">
+          <ScrollReveal variant="blur">
+            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">
+              Next Could Be You
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+              Ready to Add Your Brand<br />
+              <span className="text-gradient">To This List?</span>
+            </h2>
+            <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed mb-10">
+              Let's discuss your goals and build a digital system that drives results you can measure and results that compound.
+            </p>
+            <div className="flex flex-wrap justify-center gap-5">
+              <Link to="/contact" className="btn-glow magnetic-hover inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white font-display">
+                Start a Project
+                <ArrowRight size={17} />
+              </Link>
+              <Link to="/services" className="btn-outline-electric magnetic-hover inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold font-display">
+                Explore Services
+                <ChevronRight size={17} />
+              </Link>
+            </div>
           </ScrollReveal>
         </div>
       </section>
