@@ -383,7 +383,7 @@ export default function Index() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-28 bg-white relative overflow-hidden">
+      <section className="py-28 bg-foreground relative overflow-hidden">
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-3xl"
           animate={{ scale: [1, 1.15, 1] }}
