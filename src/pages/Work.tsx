@@ -213,7 +213,7 @@ export default function Work() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-muted/30">
+      <section className="py-24 bg-foreground">
         <div className="section-container text-center">
           <ScrollReveal>
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Next Could Be You</p>
