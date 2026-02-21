@@ -79,7 +79,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               to="/contact"
-              className="btn-glow inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white font-display transition-all"
+              className="btn-glow magnetic-hover inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white font-display transition-all"
             >
               Start a Project
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

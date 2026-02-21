@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Zap, Globe, BarChart3, Palette, Bot, Star, ChevronRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedCard from "@/components/AnimatedCard";
 import { HeroIllustration, ProcessIllustration, WebAppIllustration, AdsIllustration, AIIllustration, WorkIllustration } from "@/components/Illustrations";
+import { useRef } from "react";
 
 const services = [
   {
@@ -76,33 +78,60 @@ const processSteps = [
   },
 ];
 
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+};
+
 export default function Index() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroParallaxY = useTransform(heroScroll, [0, 1], [0, -80]);
+  const heroBgScale = useTransform(heroScroll, [0, 1], [1, 1.15]);
+
   return (
     <main>
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-6">
-        {/* Background */}
-        <div className="absolute inset-0 dot-pattern opacity-40" />
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-electric-100/60 via-violet-light/20 to-cyan-100/30 blur-3xl -translate-y-1/3 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-cyan-100/40 to-electric-100/20 blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-6">
+        {/* Background with parallax */}
+        <motion.div className="absolute inset-0 dot-pattern opacity-40" style={{ y: heroParallaxY }} />
+        <motion.div
+          className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-primary/[0.08] via-primary-deep/[0.04] to-transparent blur-3xl -translate-y-1/3 translate-x-1/3"
+          style={{ scale: heroBgScale }}
+          animate={{ rotate: [0, 5, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-primary/[0.06] to-primary-glow/[0.03] blur-3xl translate-y-1/2 -translate-x-1/4"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric-50 border border-electric-200/60 text-electric-600 text-xs font-semibold font-display uppercase tracking-widest mb-8"
+              initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.08] border border-primary/20 text-primary text-xs font-semibold font-display uppercase tracking-widest mb-8"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-electric-500 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Digital Growth Agency
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight text-foreground mb-7"
             >
               We Build Digital{" "}
@@ -125,11 +154,13 @@ export default function Index() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-4"
             >
-              <Link to="/work" className="btn-glow inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-white font-display">
+              <Link to="/work" className="btn-glow magnetic-hover inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-white font-display">
                 View Our Work
-                <ArrowRight size={17} />
+                <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
+                  <ArrowRight size={17} />
+                </motion.span>
               </Link>
-              <Link to="/contact" className="btn-outline-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold font-display">
+              <Link to="/contact" className="btn-outline-electric magnetic-hover inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold font-display">
                 Start a Project
                 <ChevronRight size={17} />
               </Link>
@@ -137,28 +168,35 @@ export default function Index() {
 
             {/* Metrics */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
               className="grid grid-cols-4 gap-6 mt-8 pt-6 border-t border-border/60"
             >
               {metrics.map((m) => (
-                <div key={m.label}>
+                <motion.div key={m.label} variants={staggerItem}>
                   <div className="font-display text-2xl font-bold text-foreground">{m.value}</div>
                   <div className="text-xs text-muted-foreground mt-1 leading-tight">{m.label}</div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right – Illustration */}
+          {/* Right – Illustration with 3D hover */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.9, rotateY: -5 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative h-[520px] lg:h-[600px]"
+            style={{ perspective: 800 }}
           >
-            <HeroIllustration />
+            <motion.div
+              className="w-full h-full"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <HeroIllustration />
+            </motion.div>
           </motion.div>
         </div>
 
@@ -170,14 +208,18 @@ export default function Index() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <span className="text-xs text-muted-foreground font-medium tracking-widest uppercase">Scroll</span>
-          <div className="w-[1px] h-10 bg-gradient-to-b from-primary/60 to-transparent" />
+          <motion.div
+            className="w-[1px] h-10 bg-gradient-to-b from-primary/60 to-transparent"
+            animate={{ scaleY: [1, 0.6, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
         </motion.div>
       </section>
 
       {/* ── SERVICES OVERVIEW ── */}
       <section className="py-8 bg-muted/30">
         <div className="section-container">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal variant="blur" className="text-center mb-16">
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">What We Do</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
               Full-Spectrum Digital<br />
@@ -192,16 +234,16 @@ export default function Index() {
             {services.map((s, i) => (
               <ScrollReveal key={s.title} delay={i * 0.07}>
                 <Link to="/services" className="block h-full">
-                  <div className="service-card h-full p-7 rounded-3xl bg-card border border-border/60 shadow-card group">
-                    <div className="w-12 h-12 rounded-2xl bg-electric-50 border border-electric-100 flex items-center justify-center text-primary mb-5 group-hover:bg-electric-100 transition-colors">
+                  <AnimatedCard className="service-card h-full p-7 rounded-3xl bg-card border border-border/60 shadow-card group">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/[0.08] border border-primary/[0.15] flex items-center justify-center text-primary mb-5 group-hover:bg-primary/[0.15] transition-colors icon-hover-spin">
                       {s.icon}
                     </div>
                     <h3 className="font-display font-semibold text-base text-foreground mb-2">{s.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                    <div className="mt-5 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="mt-5 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
                       Learn more <ArrowRight size={12} />
                     </div>
-                  </div>
+                  </AnimatedCard>
                 </Link>
               </ScrollReveal>
             ))}
@@ -212,22 +254,30 @@ export default function Index() {
       {/* ── WHY SCALEGIGA ── */}
       <section className="py-8">
         <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <ScrollReveal>
+          <ScrollReveal variant="scale">
             <div className="relative h-[380px] rounded-3xl overflow-hidden bg-gradient-hero border border-border/40 shadow-md-electric p-8">
-              <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-gradient-primary opacity-15 blur-2xl" />
+              <motion.div
+                className="absolute top-4 right-4 w-20 h-20 rounded-full bg-gradient-primary opacity-15 blur-2xl"
+                animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.2, 0.1] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
               <div className="h-[280px]">
                 <WebAppIllustration />
               </div>
               {/* Floating badge */}
-              <div className="absolute bottom-6 left-6 glass-card rounded-2xl px-5 py-3 border border-electric-100">
+              <motion.div
+                className="absolute bottom-6 left-6 glass-card rounded-2xl px-5 py-3 border border-primary/[0.15]"
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
                 <div className="text-xs text-muted-foreground mb-0.5 font-medium">Avg. Site Performance</div>
                 <div className="font-display font-bold text-xl text-foreground">98 / 100 <span className="text-primary text-sm">↑</span></div>
-              </div>
+              </motion.div>
             </div>
           </ScrollReveal>
 
           <div>
-            <ScrollReveal>
+            <ScrollReveal variant="blur">
               <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Why ScaleGiga</p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5 leading-tight">
                 One Partner.<br />
@@ -240,17 +290,21 @@ export default function Index() {
 
             <div className="space-y-3">
               {whyItems.map((item, i) => (
-                <ScrollReveal key={item} delay={i * 0.07}>
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 size={17} className="text-primary shrink-0" />
+                <ScrollReveal key={item} delay={i * 0.07} direction="right">
+                  <motion.div
+                    className="flex items-center gap-3 group cursor-default"
+                    whileHover={{ x: 6 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  >
+                    <CheckCircle2 size={17} className="text-primary shrink-0 group-hover:scale-110 transition-transform" />
                     <span className="text-sm text-foreground font-medium">{item}</span>
-                  </div>
+                  </motion.div>
                 </ScrollReveal>
               ))}
             </div>
 
             <ScrollReveal delay={0.4}>
-              <Link to="/story" className="btn-outline-electric inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold font-display mt-10">
+              <Link to="/story" className="btn-outline-electric magnetic-hover inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold font-display mt-10">
                 Our Story <ArrowRight size={15} />
               </Link>
             </ScrollReveal>
@@ -261,10 +315,14 @@ export default function Index() {
       {/* ── PROCESS ── */}
       <section className="py-8 bg-card relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary opacity-[0.07] blur-3xl" />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary opacity-[0.07] blur-3xl"
+          animate={{ scale: [1, 1.1, 1], rotate: [0, 3, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <div className="section-container relative z-10">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal variant="blur" className="text-center mb-16">
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Process</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
               Strategy → Build →<br />
@@ -277,20 +335,20 @@ export default function Index() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((step, i) => (
-              <ScrollReveal key={step.num} delay={i * 0.1}>
-                <div className="relative p-7 rounded-3xl border border-border bg-muted/50 backdrop-blur-sm hover:border-primary/30 transition-colors group">
+              <ScrollReveal key={step.num} delay={i * 0.1} variant="scale">
+                <AnimatedCard className="relative p-7 rounded-3xl border border-border bg-muted/50 backdrop-blur-sm hover:border-primary/30 transition-colors group">
                   <div className="text-4xl font-display font-bold text-gradient mb-5 opacity-60">{step.num}</div>
                   <h3 className="font-display font-bold text-foreground text-lg mb-3">{step.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
-                  <div className="absolute bottom-7 right-7 w-8 h-8 rounded-xl border border-border flex items-center justify-center group-hover:border-primary/40 transition-colors">
+                  <div className="absolute bottom-7 right-7 w-8 h-8 rounded-xl border border-border flex items-center justify-center group-hover:border-primary/40 transition-all group-hover:rotate-45 duration-300">
                     <ChevronRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
-                </div>
+                </AnimatedCard>
               </ScrollReveal>
             ))}
           </div>
 
-          <ScrollReveal className="mt-16">
+          <ScrollReveal className="mt-16" variant="parallax">
             <div className="h-24">
               <ProcessIllustration />
             </div>
@@ -309,17 +367,17 @@ export default function Index() {
                 <span className="text-gradient">Designed to Scale.</span>
               </h2>
             </div>
-            <Link to="/work" className="btn-outline-electric inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold font-display shrink-0">
+            <Link to="/work" className="btn-outline-electric magnetic-hover inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold font-display shrink-0">
               View All Work <ArrowRight size={15} />
             </Link>
           </ScrollReveal>
 
-          <ScrollReveal>
-            <div className="rounded-3xl border border-border/60 overflow-hidden shadow-md-electric p-8 bg-gradient-hero">
+          <ScrollReveal variant="scale">
+            <AnimatedCard className="rounded-3xl border border-border/60 overflow-hidden shadow-md-electric p-8 bg-gradient-hero">
               <div className="h-[280px] md:h-[360px]">
                 <WorkIllustration />
               </div>
-            </div>
+            </AnimatedCard>
           </ScrollReveal>
         </div>
       </section>

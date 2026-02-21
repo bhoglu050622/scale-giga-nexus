@@ -47,14 +47,22 @@ export default function Story() {
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-30" />
-        <div className="absolute top-0 left-0 w-[600px] h-[400px] rounded-full bg-electric-100/40 blur-3xl -translate-x-1/3 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-cyan-100/30 blur-3xl translate-x-1/4 translate-y-1/2" />
+        <motion.div
+          className="absolute top-0 left-0 w-[600px] h-[400px] rounded-full bg-primary/[0.05] blur-3xl -translate-x-1/3 -translate-y-1/2"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary-deep/[0.04] blur-3xl translate-x-1/4 translate-y-1/2"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
 
         <div className="section-container relative z-10 max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.7 }}
           >
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Our Story</p>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-7 leading-tight">

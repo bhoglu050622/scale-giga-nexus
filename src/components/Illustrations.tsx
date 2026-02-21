@@ -1,13 +1,18 @@
 // ─── HUMAN ILLUSTRATIONS for ScaleGiga ───
 // All illustrations feature human characters relevant to their section topic.
+import { motion } from "framer-motion";
 
 // HERO: Founder/team working on screens with energy/growth vibe
 export function HeroIllustration() {
   return (
     <div className="relative w-full h-full flex items-center justify-center select-none">
       {/* Background glow */}
-      <div className="absolute w-80 h-80 rounded-full"
-        style={{ background: "radial-gradient(circle, hsl(142 80% 45% / 0.12) 0%, transparent 70%)" }} />
+      <motion.div
+        className="absolute w-80 h-80 rounded-full"
+        style={{ background: "radial-gradient(circle, hsl(142 80% 45% / 0.12) 0%, transparent 70%)" }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.8, 1, 0.8] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       <svg viewBox="0 0 480 420" fill="none" className="w-full h-full max-w-lg">
         <defs>
@@ -98,25 +103,45 @@ export function HeroIllustration() {
 
         {/* ── FLOATING METRICS ── */}
         {/* Top left metric */}
-        <rect x="30" y="100" width="100" height="52" rx="12" fill="hsl(0 0% 8%)" stroke="hsl(142 80% 45% / 0.35)" strokeWidth="1.5" />
-        <text x="42" y="122" fontSize="8" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">ROAS</text>
-        <text x="42" y="140" fontSize="18" fontWeight="700" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">4.8x</text>
-        {/* Arrow up */}
-        <path d="M112 118 L118 112 L124 118" stroke="hsl(142 80% 45%)" strokeWidth="2" strokeLinecap="round" fill="none" />
-        <line x1="118" y1="112" x2="118" y2="124" stroke="hsl(142 80% 45%)" strokeWidth="2" strokeLinecap="round" />
+        <motion.g
+          animate={{ y: [0, -6, 0], x: [0, 3, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <rect x="30" y="100" width="100" height="52" rx="12" fill="hsl(0 0% 8%)" stroke="hsl(142 80% 45% / 0.35)" strokeWidth="1.5" />
+          <text x="42" y="122" fontSize="8" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">ROAS</text>
+          <text x="42" y="140" fontSize="18" fontWeight="700" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">4.8x</text>
+          <path d="M112 118 L118 112 L124 118" stroke="hsl(142 80% 45%)" strokeWidth="2" strokeLinecap="round" fill="none" />
+          <line x1="118" y1="112" x2="118" y2="124" stroke="hsl(142 80% 45%)" strokeWidth="2" strokeLinecap="round" />
+        </motion.g>
 
         {/* Top right metric */}
-        <rect x="350" y="90" width="110" height="52" rx="12" fill="hsl(0 0% 8%)" stroke="hsl(142 80% 45% / 0.35)" strokeWidth="1.5" />
-        <text x="362" y="112" fontSize="8" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">CONVERSIONS</text>
-        <text x="362" y="130" fontSize="18" fontWeight="700" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">+187%</text>
+        <motion.g
+          animate={{ y: [0, -8, 0], x: [0, -4, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        >
+          <rect x="350" y="90" width="110" height="52" rx="12" fill="hsl(0 0% 8%)" stroke="hsl(142 80% 45% / 0.35)" strokeWidth="1.5" />
+          <text x="362" y="112" fontSize="8" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">CONVERSIONS</text>
+          <text x="362" y="130" fontSize="18" fontWeight="700" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">+187%</text>
+        </motion.g>
 
         {/* Bottom left floating tag */}
-        <rect x="20" y="300" width="80" height="30" rx="10" fill="hsl(142 80% 45%)" fillOpacity="0.12" stroke="hsl(142 80% 45% / 0.4)" strokeWidth="1.5" />
-        <text x="60" y="319" textAnchor="middle" fontSize="8" fill="hsl(142 80% 45%)" fontWeight="700" fontFamily="Space Grotesk">✦ AI-Powered</text>
+        <motion.g
+          animate={{ y: [0, -5, 0], rotate: [0, 2, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        >
+          <rect x="20" y="300" width="80" height="30" rx="10" fill="hsl(142 80% 45%)" fillOpacity="0.12" stroke="hsl(142 80% 45% / 0.4)" strokeWidth="1.5" />
+          <text x="60" y="319" textAnchor="middle" fontSize="8" fill="hsl(142 80% 45%)" fontWeight="700" fontFamily="Space Grotesk">✦ AI-Powered</text>
+        </motion.g>
 
         {/* Decorative circles */}
-        <circle cx="440" cy="360" r="30" fill="hsl(142 80% 45%)" fillOpacity="0.05" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1" />
-        <circle cx="40" cy="200" r="18" fill="hsl(142 80% 45%)" fillOpacity="0.06" />
+        <motion.circle cx="440" cy="360" r="30" fill="hsl(142 80% 45%)" fillOpacity="0.05" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.circle cx="40" cy="200" r="18" fill="hsl(142 80% 45%)" fillOpacity="0.06"
+          animate={{ scale: [1, 1.3, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+        />
       </svg>
     </div>
   );

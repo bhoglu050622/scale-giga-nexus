@@ -161,12 +161,16 @@ export default function Services() {
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-30" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-electric-100/50 blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <motion.div
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-3xl -translate-y-1/2 translate-x-1/2"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
         <div className="section-container relative z-10 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.7 }}
           >
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">
               What We Offer
