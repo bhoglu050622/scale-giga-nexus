@@ -394,11 +394,11 @@ export default function Index() {
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">
               Next Could Be You
             </p>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-jet mb-6 leading-tight">
               Ready to Add Your Brand<br />
               <span className="text-gradient">To This List?</span>
             </h2>
-            <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed mb-10">
+            <p className="text-jet-400 max-w-lg mx-auto text-base leading-relaxed mb-10">
               Let's discuss your goals and build a digital system that drives results you can measure and results that compound.
             </p>
             <div className="flex flex-wrap justify-center gap-5">
