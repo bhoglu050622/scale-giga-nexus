@@ -213,22 +213,22 @@ export default function Work() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-foreground">
+      <section className="py-24 bg-muted/30">
         <div className="section-container text-center">
           <ScrollReveal>
-            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary-glow mb-5">Next Could Be You</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Next Could Be You</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-jet mb-6">
               Ready to Add Your Brand<br />
               <span className="text-gradient">To This List?</span>
             </h2>
-            <p className="text-white/50 max-w-lg mx-auto mb-10 leading-relaxed">
+            <p className="text-jet-400 max-w-lg mx-auto mb-10 leading-relaxed">
               Let's discuss your goals and build a digital system that drives results you can measure and results that compound.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contact" className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-base font-semibold text-white font-display">
                 Start a Project <ArrowRight size={17} />
               </Link>
-              <Link to="/services" className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl border border-white/15 text-white/80 font-display font-semibold text-base hover:bg-white/5 transition-colors">
+              <Link to="/services" className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl border border-jet-400/30 text-jet font-display font-semibold text-base hover:bg-jet/5 transition-colors">
                 Explore Services <ExternalLink size={15} />
               </Link>
             </div>
