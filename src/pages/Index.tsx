@@ -324,37 +324,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="py-24 bg-muted/30">
-        <div className="section-container">
-          <ScrollReveal>
-            <div className="relative rounded-3xl overflow-hidden text-center p-16 md:p-24">
-              {/* BG */}
-              <div className="absolute inset-0 bg-gradient-to-br from-electric-500 via-violet-DEFAULT to-cyan-500 opacity-90" />
-              <div className="absolute inset-0 dot-pattern opacity-10" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-white opacity-5 blur-3xl" />
-
-              <div className="relative z-10">
-                <p className="text-xs font-semibold font-display uppercase tracking-widest text-white/70 mb-5">Ready to Grow?</p>
-                <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                  Let's Build Something<br />That Scales
-                </h2>
-                <p className="text-white/70 text-base max-w-lg mx-auto mb-10 leading-relaxed">
-                  Whether you're a startup or an established brand, we have the team, technology, and strategy to take you to the next level.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-white text-foreground font-display font-bold text-base hover:bg-white/90 transition-colors shadow-lg">
-                    Start a Project <ArrowRight size={17} />
-                  </Link>
-                  <Link to="/services" className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl border border-white/30 text-white font-display font-semibold text-base hover:bg-white/10 transition-colors">
-                    Explore Services
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
     </main>
   );
 }
