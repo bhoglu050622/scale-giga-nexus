@@ -5,14 +5,12 @@ interface AnimatedCardProps {
   children: ReactNode;
   className?: string;
   glowColor?: string;
-  style?: React.CSSProperties;
 }
 
 export default function AnimatedCard({
   children,
   className = "",
-  glowColor = "hsl(43 80% 49% / 0.15)",
-  style: externalStyle,
+  glowColor = "hsl(142 80% 45% / 0.15)",
 }: AnimatedCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -49,7 +47,6 @@ export default function AnimatedCard({
         scale,
         transformPerspective: 800,
         transformStyle: "preserve-3d",
-        ...externalStyle,
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
