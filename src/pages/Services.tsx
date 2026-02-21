@@ -278,7 +278,7 @@ export default function Services() {
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
               Not Sure Where to Start?
             </h2>
-            <p className="text-white/50 max-w-lg mx-auto mb-10 text-base leading-relaxed">
+            <p className="text-black max-w-lg mx-auto mb-10 text-base leading-relaxed">
               Book a free discovery call and we'll map out the exact services that will drive the most growth for your business.
             </p>
             <Link
