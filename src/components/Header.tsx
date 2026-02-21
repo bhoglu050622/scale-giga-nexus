@@ -40,11 +40,11 @@ export default function Header() {
       >
         <div className="section-container flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative w-11 h-11 flex items-center justify-center">
-              <img src={logo} alt="ScaleGiga logo" className="w-11 h-11 object-contain drop-shadow-[0_0_8px_hsl(142_80%_45%/0.4)] transition-all duration-300 group-hover:drop-shadow-[0_0_14px_hsl(142_80%_45%/0.6)]" />
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-10 h-10 flex items-center justify-center">
+              <img src={logo} alt="ScaleGiga logo" className="w-10 h-10 object-contain" />
             </div>
-            <span className="font-logo text-[1.35rem] font-extrabold tracking-[0.04em] text-foreground drop-shadow-[0_0_12px_hsl(142_80%_45%/0.15)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_hsl(142_80%_45%/0.25)]">
+            <span className="font-display font-bold text-xl tracking-tight text-foreground">
               Scale<span className="text-gradient-primary">Giga</span>
             </span>
           </Link>
