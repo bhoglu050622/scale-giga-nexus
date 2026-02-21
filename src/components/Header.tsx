@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -41,11 +42,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="relative w-9 h-9 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-primary rounded-xl opacity-90 group-hover:opacity-100 transition-opacity" />
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="relative z-10">
-                <path d="M3 14L8 5L13 12L16 8L19 14H3Z" fill="white" fillOpacity="0.9" />
-                <circle cx="14" cy="6" r="2.5" fill="hsl(190 100% 70%)" />
-              </svg>
+              <img src={logo} alt="ScaleGiga logo" className="w-9 h-9 object-contain" />
             </div>
             <span className="font-display font-700 text-xl tracking-tight text-foreground">
               Scale<span className="text-gradient-primary">Giga</span>
