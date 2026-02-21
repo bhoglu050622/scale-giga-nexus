@@ -557,7 +557,7 @@ export function BrandIllustration() {
         [130, 152, "VOICE"],
         [98, 131, "STORY"],
         [98, 109, "AUDIENCE"],
-      ].map(([x, y, label], i) => (
+      ].map(([x, y, label]: [number, number, string], i: number) => (
         <g key={i}>
           <line x1="130" y1="120" x2={x} y2={y} stroke="hsl(142 80% 45%)" strokeOpacity="0.35" strokeWidth="1.5" strokeDasharray="4 3" />
           <circle cx={x} cy={y} r="18" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.4)" strokeWidth="1.5" />
@@ -754,9 +754,9 @@ export function WorkIllustration() {
         [420,18,"hsl(142 90% 55%)"],
         [460,35,"hsl(48 100% 55%)"],
         [80,55,"hsl(260 70% 65%)"],
-      ].map(([x,y,color],i) => (
+      ].map(([x, y, color]: [number, number, string], i: number) => (
         <rect key={i} x={x} y={y} width="8" height="5" rx="2" fill={color} fillOpacity="0.8"
-          style={{ transform: `rotate(${i*37}deg)`, transformOrigin: `${x+4}px ${y+2.5}px` }} />
+          style={{ transform: `rotate(${i*37}deg)`, transformOrigin: `${(x as number)+4}px ${(y as number)+2.5}px` }} />
       ))}
 
       {/* Monitor stand */}

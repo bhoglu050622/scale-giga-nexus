@@ -259,18 +259,18 @@ export default function Index() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="py-24 bg-foreground relative overflow-hidden">
+      <section className="py-24 bg-card relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-5" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary opacity-[0.07] blur-3xl" />
 
         <div className="section-container relative z-10">
           <ScrollReveal className="text-center mb-16">
-            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary-glow mb-4">Our Process</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-5">
+            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Process</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
               Strategy → Build →<br />
               <span className="text-gradient">Launch → Scale</span>
             </h2>
-            <p className="text-white/50 max-w-lg mx-auto text-base leading-relaxed">
+            <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed">
               A repeatable four-phase system that turns business goals into measurable digital results.
             </p>
           </ScrollReveal>
@@ -278,12 +278,12 @@ export default function Index() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((step, i) => (
               <ScrollReveal key={step.num} delay={i * 0.1}>
-                <div className="relative p-7 rounded-3xl border border-white/8 bg-white/5 backdrop-blur-sm hover:border-primary/30 transition-colors group">
+                <div className="relative p-7 rounded-3xl border border-border bg-muted/50 backdrop-blur-sm hover:border-primary/30 transition-colors group">
                   <div className="text-4xl font-display font-bold text-gradient mb-5 opacity-60">{step.num}</div>
-                  <h3 className="font-display font-bold text-white text-lg mb-3">{step.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{step.desc}</p>
-                  <div className="absolute bottom-7 right-7 w-8 h-8 rounded-xl border border-white/10 flex items-center justify-center group-hover:border-primary/40 transition-colors">
-                    <ChevronRight size={14} className="text-white/30 group-hover:text-primary transition-colors" />
+                  <h3 className="font-display font-bold text-foreground text-lg mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+                  <div className="absolute bottom-7 right-7 w-8 h-8 rounded-xl border border-border flex items-center justify-center group-hover:border-primary/40 transition-colors">
+                    <ChevronRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
                   </div>
                 </div>
               </ScrollReveal>
