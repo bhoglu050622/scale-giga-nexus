@@ -80,7 +80,7 @@ export default function Index() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-20">
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-10">
         {/* Background */}
         <div className="absolute inset-0 dot-pattern opacity-40" />
         <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-electric-100/60 via-violet-light/20 to-cyan-100/30 blur-3xl -translate-y-1/3 translate-x-1/3" />
@@ -175,7 +175,7 @@ export default function Index() {
       </section>
 
       {/* ── SERVICES OVERVIEW ── */}
-      <section className="py-24 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="section-container">
           <ScrollReveal className="text-center mb-16">
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">What We Do</p>
@@ -210,7 +210,7 @@ export default function Index() {
       </section>
 
       {/* ── WHY SCALEGIGA ── */}
-      <section className="py-24">
+      <section className="py-12">
         <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <ScrollReveal>
             <div className="relative h-[380px] rounded-3xl overflow-hidden bg-gradient-hero border border-border/40 shadow-md-electric p-8">
@@ -259,7 +259,7 @@ export default function Index() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="py-24 bg-card relative overflow-hidden">
+      <section className="py-12 bg-card relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-5" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary opacity-[0.07] blur-3xl" />
 
@@ -299,7 +299,7 @@ export default function Index() {
       </section>
 
       {/* ── FEATURED WORK PREVIEW ── */}
-      <section className="py-24">
+      <section className="py-12">
         <div className="section-container">
           <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
