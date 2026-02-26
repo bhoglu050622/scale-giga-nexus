@@ -61,6 +61,7 @@ export default function Footer() {
                 <li key={s}>
                   <Link
                     to="/services"
+                    onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "instant" })}
                     className="text-sm text-black/60 hover:text-black transition-colors"
                   >
                     {s}
@@ -80,6 +81,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <Link
                     to={l.href}
+                    onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "instant" })}
                     className="text-sm text-black/60 hover:text-black transition-colors"
                   >
                     {l.label}
@@ -99,6 +101,7 @@ export default function Footer() {
             </p>
             <Link
               to="/contact"
+              onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "instant" })}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-black font-display border border-black/20 hover:bg-black/5 transition-colors"
             >
               Let's Connect →
