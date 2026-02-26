@@ -8,14 +8,14 @@ import { useRef } from "react";
 
 const services = [
   {
+    icon: <Star size={22} />,
+    title: "Brand Strategy",
+    desc: "Positioning, messaging, and identity that create long-term brand equity.",
+  },
+  {
     icon: <Globe size={22} />,
     title: "Website & App Development",
     desc: "Fast, scalable, conversion-focused digital products that turn visitors into customers.",
-  },
-  {
-    icon: <BarChart3 size={22} />,
-    title: "Performance Marketing",
-    desc: "Data-driven ad campaigns across Google, Meta, and LinkedIn that drive measurable ROI.",
   },
   {
     icon: <Palette size={22} />,
@@ -33,9 +33,9 @@ const services = [
     desc: "Strategic content, community building, and engagement that grows your brand.",
   },
   {
-    icon: <Star size={22} />,
-    title: "Brand Strategy",
-    desc: "Positioning, messaging, and identity that create long-term brand equity.",
+    icon: <BarChart3 size={22} />,
+    title: "Performance Marketing",
+    desc: "Data-driven ad campaigns across Google, Meta, and LinkedIn that drive measurable ROI.",
   },
 ];
 
