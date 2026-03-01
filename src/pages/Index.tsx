@@ -40,7 +40,7 @@ const services = [
 ];
 
 const metrics = [
-  { value: "25+", label: "Projects Delivered" },
+  { value: "21+", label: "Projects Delivered" },
   { value: "4.8x", label: "Average ROAS" },
   { value: "98%", label: "Client Satisfaction" },
   { value: "12+", label: "Industries Served" },
