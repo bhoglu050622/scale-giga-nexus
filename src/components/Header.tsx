@@ -43,7 +43,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="relative w-10 h-10 flex items-center justify-center">
-              <img src={logo} alt="ScaleGiga logo" className="w-10 h-10 object-contain" />
+              <img src={logo} alt="ScaleGiga logo" className="w-10 h-10 object-contain mix-blend-screen" />
             </div>
             <span className="font-display font-bold text-xl tracking-tight text-foreground">
               Scale<span className="text-gradient-primary">Giga</span>
