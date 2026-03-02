@@ -2,31 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { WorkIllustration, WebAppIllustration, AdsIllustration, AIIllustration } from "@/components/Illustrations";
-
-const capabilities = [
-  {
-    title: "Conversion-Focused Websites",
-    desc: "Websites engineered to turn visitors into customers with optimized user journeys, clear CTAs, and performance-first architecture.",
-    tags: ["React", "Next.js", "CRO", "SEO"],
-    illustration: <WebAppIllustration />,
-    metric: "+187% Conversion Rate",
-  },
-  {
-    title: "High-Performing Ad Campaigns",
-    desc: "Data-driven advertising across Google, Meta, and LinkedIn that drives qualified leads at scale.",
-    tags: ["Google Ads", "Meta Ads", "LinkedIn", "Analytics"],
-    illustration: <AdsIllustration />,
-    metric: "4.8x Average ROAS",
-  },
-  {
-    title: "AI-Powered Automation Systems",
-    desc: "Intelligent workflows and AI agents that eliminate manual tasks and scale customer interactions.",
-    tags: ["AI Chatbots", "Automation", "CRM", "APIs"],
-    illustration: <AIIllustration />,
-    metric: "60% Time Saved",
-  },
-];
 
 const projectCards = [
   { label: "E-Commerce Brand", type: "Website + Performance Marketing", result: "3.2x Revenue Growth" },
@@ -62,62 +37,6 @@ export default function Work() {
         </div>
       </section>
 
-      {/* Overview */}
-      <section className="py-12 sm:py-20">
-        <div className="section-container">
-          <ScrollReveal>
-            <motion.div
-              className="h-[280px] md:h-[420px]"
-              animate={{ y: [0, -8, 0], rotateX: [0, 1, 0], rotateY: [0, -1.5, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              style={{ perspective: 800, transformStyle: "preserve-3d" }}
-            >
-              <WorkIllustration />
-            </motion.div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Core Capabilities — horizontal scroll cards */}
-      <section className="py-12 sm:py-20 bg-muted/30">
-        <div className="section-container">
-          <ScrollReveal className="text-center mb-14">
-            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Core Capabilities</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
-              What We Deliver,<br />
-              <span className="text-gradient">Consistently</span>
-            </h2>
-          </ScrollReveal>
-
-          <div className="space-y-8">
-            {capabilities.map((cap, i) => (
-              <ScrollReveal key={cap.title} delay={i * 0.08}>
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? "lg:grid-flow-dense" : ""}`}>
-                  <div className={i % 2 === 1 ? "lg:col-start-2" : ""}>
-                    <div className="h-[260px] rounded-2xl bg-card border border-border/40 shadow-card p-6 overflow-hidden">
-                      {cap.illustration}
-                    </div>
-                  </div>
-                  <div className={i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
-                    <div className="inline-block px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest mb-5 border border-primary/30 bg-primary/[0.06] text-primary">
-                      {cap.metric}
-                    </div>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">{cap.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">{cap.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {cap.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1 rounded-lg bg-muted text-xs font-medium text-muted-foreground border border-border">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Project cards — stacked rows with reveal animation */}
       <section className="py-12 sm:py-24">

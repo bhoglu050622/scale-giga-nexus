@@ -470,35 +470,46 @@ export function WorkIllustration() {
 // CONTACT: Communication / connection visualization
 export function ContactIllustration() {
   return (
-    <svg viewBox="0 0 300 180" fill="none" className="w-full h-full">
-      {/* Signal rings */}
-      <circle cx="150" cy="90" r="70" fill="none" stroke="hsl(142 80% 45% / 0.04)" strokeWidth="1" />
-      <circle cx="150" cy="90" r="55" fill="none" stroke="hsl(142 80% 45% / 0.06)" strokeWidth="1" />
-      <circle cx="150" cy="90" r="40" fill="none" stroke="hsl(142 80% 45% / 0.1)" strokeWidth="1" />
-      <circle cx="150" cy="90" r="25" fill="none" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1.5" />
+    <svg viewBox="0 0 300 160" fill="none" className="w-full h-full">
+      {/* Signal rings - enhanced with more detail */}
+      <circle cx="150" cy="80" r="75" fill="none" stroke="hsl(142 80% 45% / 0.03)" strokeWidth="1" />
+      <circle cx="150" cy="80" r="62" fill="none" stroke="hsl(142 80% 45% / 0.05)" strokeWidth="1" />
+      <circle cx="150" cy="80" r="48" fill="none" stroke="hsl(142 80% 45% / 0.08)" strokeWidth="1" />
+      <circle cx="150" cy="80" r="34" fill="none" stroke="hsl(142 80% 45% / 0.12)" strokeWidth="1.2" />
+      <circle cx="150" cy="80" r="20" fill="none" stroke="hsl(142 80% 45% / 0.18)" strokeWidth="1.5" />
       
-      {/* Center icon */}
-      <circle cx="150" cy="90" r="12" fill="hsl(142 80% 45% / 0.15)" stroke="hsl(142 80% 45%)" strokeWidth="1.5" />
-      <circle cx="150" cy="90" r="4" fill="hsl(142 80% 45%)" />
+      {/* Center hub - enhanced glow */}
+      <circle cx="150" cy="80" r="14" fill="hsl(142 80% 45% / 0.08)" />
+      <circle cx="150" cy="80" r="14" fill="none" stroke="hsl(142 80% 45% / 0.6)" strokeWidth="2" />
+      <circle cx="150" cy="80" r="6" fill="hsl(142 80% 45% / 0.3)" />
+      <circle cx="150" cy="80" r="3.5" fill="hsl(142 80% 45%)" />
       
-      {/* Connection points */}
+      {/* Connection points - larger, more detailed */}
       {[
-        { x: 55, y: 40, label: "Email" },
-        { x: 245, y: 40, label: "Call" },
-        { x: 55, y: 140, label: "Chat" },
-        { x: 245, y: 140, label: "Meet" },
+        { x: 48, y: 32, label: "Email" },
+        { x: 252, y: 32, label: "Call" },
+        { x: 48, y: 128, label: "Chat" },
+        { x: 252, y: 128, label: "Meet" },
       ].map((pt, i) => (
         <g key={i}>
-          <line x1="150" y1="90" x2={pt.x} y2={pt.y} stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1" strokeDasharray="3 3" />
-          <circle cx={pt.x} cy={pt.y} r="18" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.3)" strokeWidth="1.5" />
-          <text x={pt.x} y={pt.y + 4} textAnchor="middle" fontSize="7" fill="hsl(142 80% 45%)" fontWeight="600" fontFamily="Space Grotesk">{pt.label}</text>
+          <line x1="150" y1="80" x2={pt.x} y2={pt.y} stroke="hsl(142 80% 45% / 0.12)" strokeWidth="1.2" strokeDasharray="4 3" />
+          {/* Outer ring */}
+          <circle cx={pt.x} cy={pt.y} r="24" fill="hsl(0 0% 4%)" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1" />
+          {/* Inner circle */}
+          <circle cx={pt.x} cy={pt.y} r="20" fill="hsl(0 0% 6%)" stroke="hsl(142 80% 45% / 0.35)" strokeWidth="1.5" />
+          {/* Inner glow */}
+          <circle cx={pt.x} cy={pt.y} r="12" fill="hsl(142 80% 45% / 0.04)" />
+          <text x={pt.x} y={pt.y + 4} textAnchor="middle" fontSize="7.5" fill="hsl(142 80% 45%)" fontWeight="700" fontFamily="Space Grotesk">{pt.label}</text>
         </g>
       ))}
       
-      {/* Status */}
-      <rect x="110" y="160" width="80" height="18" rx="5" fill="hsl(142 80% 45% / 0.08)" stroke="hsl(142 80% 45% / 0.2)" strokeWidth="1" />
-      <circle cx="124" cy="169" r="3" fill="hsl(142 80% 45%)" />
-      <text x="132" y="172" fontSize="6" fill="hsl(142 60% 55%)" fontFamily="Space Grotesk">Online — 24/7</text>
+      {/* Decorative connection dots along lines */}
+      {[
+        { x: 100, y: 56 }, { x: 200, y: 56 }, { x: 100, y: 104 }, { x: 200, y: 104 },
+      ].map((d, i) => (
+        <circle key={i} cx={d.x} cy={d.y} r="2" fill="hsl(142 80% 45% / 0.25)" />
+      ))}
+      
     </svg>
   );
 }
