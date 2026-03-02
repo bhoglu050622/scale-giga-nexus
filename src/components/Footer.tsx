@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
 
 const services = [
   "Website & App Development",
@@ -22,14 +21,11 @@ const links = [
 export default function Footer() {
   return (
     <footer className="relative bg-white text-black overflow-hidden">
-      <div className="section-container pt-20 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div className="section-container pt-16 pb-8 sm:pt-20 sm:pb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="relative w-9 h-9 flex items-center justify-center bg-white rounded-xl">
-                <img src={logo} alt="ScaleGiga logo" className="w-9 h-9 object-contain" />
-              </div>
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center mb-5">
               <span className="font-display font-bold text-xl text-black">
                 Scale<span className="text-black">Giga</span>
               </span>
