@@ -175,20 +175,26 @@ export default function Index() {
       <section className="py-6 sm:py-8">
         <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-center">
           <ScrollReveal variant="scale">
-            <div className="relative h-[380px] rounded-3xl overflow-hidden bg-gradient-hero border border-border/40 shadow-md-electric p-8">
+            <div className="relative h-[380px] flex items-center justify-center">
+              {/* Ambient glow */}
               <motion.div
-                className="absolute top-4 right-4 w-20 h-20 rounded-full bg-gradient-primary opacity-15 blur-2xl"
-                animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.2, 0.1] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-primary/[0.08] blur-[80px]"
+                animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-              <div className="h-[280px]">
+              <motion.div
+                className="relative w-full h-[300px]"
+                animate={{ y: [0, -8, 0], rotateY: [0, -1.5, 0], rotateX: [0, 1, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                style={{ perspective: 800 }}
+              >
                 <WebAppIllustration />
-              </div>
+              </motion.div>
               {/* Floating badge */}
               <motion.div
-                className="absolute bottom-6 left-6 glass-card rounded-2xl px-5 py-3 border border-primary/[0.15]"
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-4 left-4 glass-card rounded-2xl px-5 py-3 border border-primary/[0.15]"
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               >
                 <div className="text-xs text-muted-foreground mb-0.5 font-medium">Avg. Site Performance</div>
                 <div className="font-display font-bold text-xl text-foreground">98 / 100 <span className="text-primary text-sm">↑</span></div>
