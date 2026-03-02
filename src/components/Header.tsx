@@ -55,10 +55,10 @@ export default function Header() {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`relative text-[14px] font-medium tracking-wide transition-colors duration-200 group ${
+                  className={`relative text-[14px] font-semibold tracking-wide transition-colors duration-200 group ${
                     active
                       ? "text-primary"
-                      : "text-foreground/60 hover:text-foreground"
+                      : "text-foreground/90 hover:text-foreground"
                   }`}
                 >
                   {link.label}
