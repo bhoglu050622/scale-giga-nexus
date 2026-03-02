@@ -4,41 +4,9 @@ import { ArrowRight, CheckCircle2, Zap, Globe, BarChart3, Palette, Bot, Star, Ch
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCard from "@/components/AnimatedCard";
 import { ProcessIllustration, WebAppIllustration } from "@/components/Illustrations";
+import ServiceShowcase from "@/components/ServiceShowcase";
 import { useRef } from "react";
 import HeroDashboard from "@/components/HeroDashboard";
-
-const services = [
-  {
-    icon: <Star size={22} />,
-    title: "Brand Strategy",
-    desc: "Positioning, messaging, and identity that create long-term brand equity.",
-  },
-  {
-    icon: <Globe size={22} />,
-    title: "Website & App Development",
-    desc: "Fast, scalable, conversion-focused digital products that turn visitors into customers.",
-  },
-  {
-    icon: <Palette size={22} />,
-    title: "Creative & Branding",
-    desc: "Compelling visual identities and brand systems that make you unforgettable.",
-  },
-  {
-    icon: <Bot size={22} />,
-    title: "AI Agents & Automation",
-    desc: "Intelligent systems that eliminate manual work and scale your customer experience.",
-  },
-  {
-    icon: <Zap size={22} />,
-    title: "Social Media Marketing",
-    desc: "Strategic content, community building, and engagement that grows your brand.",
-  },
-  {
-    icon: <BarChart3 size={22} />,
-    title: "Performance Marketing",
-    desc: "Data-driven ad campaigns across Google, Meta, and LinkedIn that drive measurable ROI.",
-  },
-];
 
 const metrics = [
   { value: "21+", label: "Projects Delivered" },
@@ -132,7 +100,7 @@ export default function Index() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/15 text-primary text-[11px] font-semibold font-display uppercase tracking-[0.2em] mb-10"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Digital Systems Lab
+              Digital Growth Agency
             </motion.div>
 
             <motion.h1
@@ -224,41 +192,7 @@ export default function Index() {
         </motion.div>
       </section>
 
-      {/* ── SERVICES OVERVIEW ── */}
-      <section className="py-8 bg-muted/30">
-        <div className="section-container">
-          <ScrollReveal variant="blur" className="text-center mb-16">
-            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">What We Do</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
-              Full-Spectrum Digital<br />
-              <span className="text-gradient">Growth Services</span>
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed">
-              From strategy to execution, we deliver every digital capability your brand needs to grow — under one roof.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <ScrollReveal key={s.title} delay={i * 0.07}>
-                <Link to="/services" className="block h-full">
-                  <AnimatedCard className="service-card h-full p-7 rounded-3xl bg-card border border-border/60 shadow-card group">
-                    <div className="w-12 h-12 rounded-2xl bg-primary/[0.08] border border-primary/[0.15] flex items-center justify-center text-primary mb-5 group-hover:bg-primary/[0.15] transition-colors icon-hover-spin">
-                      {s.icon}
-                    </div>
-                    <h3 className="font-display font-semibold text-base text-foreground mb-2">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-                    <div className="mt-5 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
-                      Learn more <ArrowRight size={12} />
-                    </div>
-                  </AnimatedCard>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <ServiceShowcase />
       {/* ── WHY SCALEGIGA ── */}
       <section className="py-8">
         <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">

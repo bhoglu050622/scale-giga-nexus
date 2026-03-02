@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+
 
 const navLinks = [
   { label: "Services", href: "/services" },
@@ -41,11 +41,8 @@ export default function Header() {
       >
         <div className="section-container flex items-center justify-between">
           {/* Logo – Left */}
-          <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="relative w-9 h-9 flex items-center justify-center">
-              <img src={logo} alt="ScaleGiga logo" className="w-9 h-9 object-contain mix-blend-screen" />
-            </div>
-            <span className="font-display font-bold text-lg tracking-tight text-foreground">
+          <Link to="/" className="flex items-center group shrink-0">
+            <span className="font-display font-bold text-2xl tracking-tight text-foreground">
               Scale<span className="text-gradient-primary">Giga</span>
             </span>
           </Link>
