@@ -33,14 +33,6 @@ const values = [
   },
 ];
 
-const team = [
-  { name: "Alex Rivera", role: "Founder & Growth Strategist", init: "AR" },
-  { name: "Priya Nair", role: "Head of Creative", init: "PN" },
-  { name: "James Wu", role: "Lead Developer", init: "JW" },
-  { name: "Sofia Mendez", role: "Performance Marketing Lead", init: "SM" },
-  { name: "Liam Okafor", role: "AI & Automation Engineer", init: "LO" },
-  { name: "Emma Chen", role: "Brand Strategist", init: "EC" },
-];
 
 // Glassmorphism value card with hover glow
 function ValueCard({ value, index }: { value: typeof values[0]; index: number }) {
@@ -204,34 +196,6 @@ export default function Story() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => (
               <ValueCard key={v.title} value={v} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-24 bg-muted/30">
-        <div className="section-container">
-          <ScrollReveal className="text-center mb-16">
-            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Team</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
-              The Minds Behind{" "}
-              <span className="text-gradient">ScaleGiga</span>
-            </h2>
-            <p className="text-muted-foreground max-w-lg mx-auto">
-              A multidisciplinary team of strategists, designers, engineers, and marketers — united by a passion for building things that grow.
-            </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-            {team.map((member, i) => (
-              <ScrollReveal key={member.name} delay={i * 0.07} className="text-center">
-                <div className="mx-auto w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-primary-foreground font-display font-bold text-lg mb-3 shadow-sm">
-                  {member.init}
-                </div>
-                <p className="font-display font-semibold text-sm text-foreground">{member.name}</p>
-                <p className="text-xs text-muted-foreground mt-0.5 leading-tight">{member.role}</p>
-              </ScrollReveal>
             ))}
           </div>
         </div>
