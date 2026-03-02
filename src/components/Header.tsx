@@ -41,7 +41,7 @@ export default function Header() {
       >
         <div className="section-container flex items-center justify-between">
           {/* Logo – Left */}
-          <Link to="/" className="flex items-center group shrink-0 ml-2 lg:ml-4">
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center group shrink-0 ml-2 lg:ml-4">
             <span className="font-display font-bold text-[1.7rem] md:text-3xl tracking-tight text-foreground">
               Scale<span className="text-gradient-primary">Giga</span>
             </span>
