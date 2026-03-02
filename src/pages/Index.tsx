@@ -85,7 +85,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-[clamp(1.7rem,4.2vw,3.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-foreground mb-3 sm:mb-7"
+              className="font-display text-[clamp(2.05rem,4.2vw,3.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-foreground mb-3 sm:mb-7"
             >
               We Engineer Digital{" "}
               <span className="relative inline-block">
@@ -149,7 +149,7 @@ export default function Index() {
             initial={{ opacity: 0, scale: 0.95, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative h-[220px] sm:h-[320px] lg:h-[400px]"
+            className="relative h-[180px] sm:h-[320px] lg:h-[400px]"
           >
             <HeroDashboard />
           </motion.div>
