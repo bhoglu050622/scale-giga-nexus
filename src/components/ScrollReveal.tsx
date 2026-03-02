@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, ReactNode } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -19,6 +20,7 @@ export default function ScrollReveal({
   parallaxOffset = 40,
 }: ScrollRevealProps) {
   const ref = useRef(null);
+  const isMobile = useIsMobile();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -29,17 +31,19 @@ export default function ScrollReveal({
   // Element enters viewport ~0.0, centered ~0.5, exits ~1.0
   // We animate in from 0→0.35 and reverse from 0.65→1.0
 
+  // Faster reveal on mobile for snappier feel
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.35, 0.65, 0.85, 1],
+    isMobile ? [0, 0.1, 0.2, 0.8, 0.9, 1] : [0, 0.2, 0.35, 0.65, 0.85, 1],
     [0, 0.6, 1, 1, 0.6, 0]
   );
 
-  // Direction-based transforms
-  const yUp = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [40, 0, 0, -40]);
+  // Direction-based transforms - smaller distances on mobile
+  const dist = isMobile ? 20 : 40;
+  const yUp = useTransform(scrollYProgress, isMobile ? [0, 0.2, 0.8, 1] : [0, 0.35, 0.65, 1], [dist, 0, 0, -dist]);
   const yNone = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const xLeft = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [-40, 0, 0, 40]);
-  const xRight = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [40, 0, 0, -40]);
+  const xLeft = useTransform(scrollYProgress, isMobile ? [0, 0.2, 0.8, 1] : [0, 0.35, 0.65, 1], [-dist, 0, 0, dist]);
+  const xRight = useTransform(scrollYProgress, isMobile ? [0, 0.2, 0.8, 1] : [0, 0.35, 0.65, 1], [dist, 0, 0, -dist]);
   const xNone = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
   // Scale variant
