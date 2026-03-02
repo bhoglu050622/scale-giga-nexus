@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Target, Lightbulb, TrendingUp, Cpu, Handshake } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { StoryIllustration } from "@/components/Illustrations";
+import { useRef, useState } from "react";
 
 const values = [
   {
@@ -41,21 +42,68 @@ const team = [
   { name: "Emma Chen", role: "Brand Strategist", init: "EC" },
 ];
 
+// Glassmorphism value card with hover glow
+function ValueCard({ value, index }: { value: typeof values[0]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = useState(false);
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width);
+    mouseY.set((e.clientY - rect.top) / rect.height);
+  };
+
+  const glowX = useSpring(useTransform(mouseX, [0, 1], [0, 100]), { stiffness: 200, damping: 25 });
+  const glowY = useSpring(useTransform(mouseY, [0, 1], [0, 100]), { stiffness: 200, damping: 25 });
+
+  return (
+    <ScrollReveal delay={index * 0.08}>
+      <motion.div
+        ref={ref}
+        className="relative h-full p-7 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/40 overflow-hidden group cursor-default"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        whileHover={{ y: -4, borderColor: "hsl(142 80% 45% / 0.3)" }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      >
+        {/* Glow spotlight */}
+        <motion.div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: useTransform(
+              [glowX, glowY],
+              ([x, y]) => `radial-gradient(300px circle at ${x}% ${y}%, hsl(142 80% 45% / ${hovered ? 0.08 : 0}), transparent 60%)`
+            ),
+          }}
+        />
+        
+        <motion.div
+          className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/[0.15] flex items-center justify-center text-primary mb-5"
+          whileHover={{ rotate: 8, scale: 1.1 }}
+        >
+          {value.icon}
+        </motion.div>
+        <h3 className="font-display font-semibold text-foreground mb-3">{value.title}</h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">{value.desc}</p>
+      </motion.div>
+    </ScrollReveal>
+  );
+}
+
 export default function Story() {
   return (
     <main className="pt-24">
       {/* Hero */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-30" />
+        <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
         <motion.div
           className="absolute top-0 left-0 w-[600px] h-[400px] rounded-full bg-primary/[0.05] blur-3xl -translate-x-1/3 -translate-y-1/2"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary-deep/[0.04] blur-3xl translate-x-1/4 translate-y-1/2"
-          animate={{ scale: [1, 1.15, 1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
 
         <div className="section-container relative z-10 max-w-4xl mx-auto text-center">
@@ -80,7 +128,7 @@ export default function Story() {
       <section className="py-10">
         <div className="section-container max-w-3xl mx-auto">
           <ScrollReveal>
-            <div className="h-[220px] rounded-3xl bg-gradient-hero border border-border/50 shadow-card p-8">
+            <div className="h-[220px] rounded-3xl bg-card border border-border/50 shadow-card p-8">
               <StoryIllustration />
             </div>
           </ScrollReveal>
@@ -111,13 +159,13 @@ export default function Story() {
         <div className="section-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ScrollReveal delay={0}>
-              <div className="p-10 rounded-3xl bg-gradient-primary text-white shadow-lg-electric relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-white/5 blur-2xl" />
-                <p className="text-xs font-semibold font-display uppercase tracking-widest text-white/60 mb-4">Our Mission</p>
+              <div className="p-10 rounded-3xl bg-gradient-primary text-primary-foreground shadow-lg relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-primary-foreground/5 blur-2xl" />
+                <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary-foreground/60 mb-4">Our Mission</p>
                 <h2 className="font-display text-2xl font-bold mb-4 leading-tight">
                   Help Businesses Grow Through Powerful Digital Systems
                 </h2>
-                <p className="text-white/75 text-sm leading-relaxed">
+                <p className="text-primary-foreground/75 text-sm leading-relaxed">
                   Our mission is to help businesses grow through powerful digital systems that are fast, scalable, and measurable — turning digital investment into compounding returns.
                 </p>
               </div>
@@ -125,7 +173,7 @@ export default function Story() {
 
             <ScrollReveal delay={0.1}>
               <div className="p-10 rounded-3xl border border-border/60 bg-card shadow-card relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-electric-50 blur-2xl" />
+                <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-primary/[0.04] blur-2xl" />
                 <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Vision</p>
                 <h2 className="font-display text-2xl font-bold mb-4 leading-tight text-foreground">
                   A Globally Trusted Digital Growth Partner
@@ -139,7 +187,7 @@ export default function Story() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Values - glassmorphism cards with spotlight */}
       <section className="py-24">
         <div className="section-container">
           <ScrollReveal className="text-center mb-16">
@@ -155,15 +203,7 @@ export default function Story() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => (
-              <ScrollReveal key={v.title} delay={i * 0.08}>
-                <div className="service-card h-full p-7 rounded-3xl bg-card border border-border/60 shadow-card">
-                  <div className="w-11 h-11 rounded-2xl bg-electric-50 border border-electric-100 flex items-center justify-center text-primary mb-5">
-                    {v.icon}
-                  </div>
-                  <h3 className="font-display font-semibold text-foreground mb-3">{v.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-                </div>
-              </ScrollReveal>
+              <ValueCard key={v.title} value={v} index={i} />
             ))}
           </div>
         </div>
@@ -186,7 +226,7 @@ export default function Story() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
             {team.map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 0.07} className="text-center">
-                <div className="mx-auto w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-white font-display font-bold text-lg mb-3 shadow-md-electric">
+                <div className="mx-auto w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center text-primary-foreground font-display font-bold text-lg mb-3 shadow-sm">
                   {member.init}
                 </div>
                 <p className="font-display font-semibold text-sm text-foreground">{member.name}</p>
@@ -209,7 +249,7 @@ export default function Story() {
               Whether you're starting from scratch or scaling an established brand, we're ready to become your digital growth partner.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="btn-glow inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-white font-display">
+              <Link to="/contact" className="btn-glow magnetic-hover inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-primary-foreground font-display">
                 Start a Project <ArrowRight size={17} />
               </Link>
               <Link to="/services" className="btn-outline-electric inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold font-display">
