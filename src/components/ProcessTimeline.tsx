@@ -3,11 +3,11 @@ import { useRef } from "react";
 import { Compass, Palette, Code2, Rocket, TrendingUp } from "lucide-react";
 
 const steps = [
-  { num: "01", label: "Strategy", sub: "Research & Plan", icon: Compass, stat: "+187%", statLabel: "Growth" },
-  { num: "02", label: "Design", sub: "Brand & UI/UX", icon: Palette, stat: "4.8x", statLabel: "ROAS" },
-  { num: "03", label: "Develop", sub: "Build & Test", icon: Code2, stat: "98/100", statLabel: "Score" },
-  { num: "04", label: "Launch", sub: "Deploy & Scale", icon: Rocket, stat: "3.2x", statLabel: "Revenue" },
-  { num: "05", label: "Grow", sub: "Optimize & Expand", icon: TrendingUp, stat: "120+", statLabel: "Leads/mo" },
+  { label: "Strategy", sub: "Research & Plan", icon: Compass },
+  { label: "Design", sub: "Brand & UI/UX", icon: Palette },
+  { label: "Develop", sub: "Build & Test", icon: Code2 },
+  { label: "Launch", sub: "Deploy & Scale", icon: Rocket },
+  { label: "Grow", sub: "Optimize & Expand", icon: TrendingUp },
 ];
 
 export default function ProcessTimeline() {
@@ -48,24 +48,13 @@ export default function ProcessTimeline() {
             const Icon = step.icon;
             return (
               <motion.div
-                key={step.num}
+                key={step.label}
                 className="flex flex-col items-center relative group"
                 style={{ width: "18%" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.15, ease: "easeOut" }}
               >
-                {/* Floating stat badge */}
-                <motion.div
-                  className="mb-3 px-3 py-1 rounded-lg bg-card/80 border border-primary/20 backdrop-blur-sm"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                  transition={{ duration: 0.5, delay: 0.8 + i * 0.2 }}
-                >
-                  <span className="text-xs font-bold font-display text-primary">{step.stat}</span>
-                  <span className="text-[10px] text-muted-foreground ml-1">{step.statLabel}</span>
-                </motion.div>
-
                 {/* Node circle */}
                 <motion.div
                   className="relative w-[72px] h-[72px] rounded-full bg-card border-2 border-primary/40 flex items-center justify-center cursor-pointer z-10"
@@ -83,9 +72,8 @@ export default function ProcessTimeline() {
                   {/* Inner glow */}
                   <div className="absolute inset-1 rounded-full bg-primary/[0.06]" />
                   
-                  <div className="flex flex-col items-center gap-0.5">
-                    <Icon size={18} className="text-primary" />
-                    <span className="text-[10px] font-bold font-display text-primary">{step.num}</span>
+                  <div className="flex flex-col items-center">
+                    <Icon size={20} className="text-primary" />
                   </div>
                 </motion.div>
 
@@ -131,7 +119,7 @@ export default function ProcessTimeline() {
             const Icon = step.icon;
             return (
               <motion.div
-                key={step.num}
+                key={step.label}
                 className="relative flex items-start gap-5"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
@@ -145,9 +133,7 @@ export default function ProcessTimeline() {
                 {/* Content */}
                 <div className="pt-2">
                   <div className="flex items-center gap-3 mb-1">
-                    <span className="text-xs font-bold font-display text-primary">{step.num}</span>
                     <span className="font-display font-bold text-foreground">{step.label}</span>
-                    <span className="text-xs px-2 py-0.5 rounded-md bg-primary/10 text-primary font-semibold">{step.stat}</span>
                   </div>
                   <p className="text-xs text-muted-foreground">{step.sub}</p>
                 </div>
