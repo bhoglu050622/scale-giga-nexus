@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Target, Lightbulb, TrendingUp, Cpu, Handshake } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { StoryIllustration } from "@/components/Illustrations";
+import ProcessTimeline from "@/components/ProcessTimeline";
 import { useRef, useState } from "react";
 
 const values = [
@@ -116,14 +116,10 @@ export default function Story() {
         </div>
       </section>
 
-      {/* Timeline illustration */}
-      <section className="py-10">
-        <div className="section-container max-w-3xl mx-auto">
-          <ScrollReveal>
-            <div className="h-[220px] rounded-3xl bg-card border border-border/50 shadow-card p-8">
-              <StoryIllustration />
-            </div>
-          </ScrollReveal>
+      {/* Process Timeline */}
+      <section className="py-4">
+        <div className="section-container max-w-5xl mx-auto">
+          <ProcessTimeline />
         </div>
       </section>
 
