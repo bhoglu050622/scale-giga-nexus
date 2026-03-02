@@ -128,14 +128,14 @@ const services = [
   },
 ];
 
-// Service illustration card with parallax tilt
+// Service illustration with floating 3D animation — no outer box
 function ServiceVisual({ children, index }: { children: React.ReactNode; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
-  const rotateX = useTransform(mouseY, [0, 1], [3, -3]);
-  const rotateY = useTransform(mouseX, [0, 1], [-3, 3]);
+  const rotateX = useTransform(mouseY, [0, 1], [5, -5]);
+  const rotateY = useTransform(mouseX, [0, 1], [-5, 5]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!ref.current) return;
@@ -149,15 +149,32 @@ function ServiceVisual({ children, index }: { children: React.ReactNode; index: 
     mouseY.set(0.5);
   };
 
+  // Alternate float direction per card for visual variety
+  const floatY = index % 2 === 0 ? [0, -10, 0] : [0, 8, 0];
+  const floatRotate = index % 3 === 0 ? [0, 1.5, 0] : index % 3 === 1 ? [0, -1, 0] : [0, 0.8, 0];
+
   return (
     <motion.div
       ref={ref}
-      className="relative h-[320px] rounded-2xl bg-card border border-border/40 shadow-card p-6 overflow-hidden"
-      style={{ rotateX, rotateY, transformPerspective: 800, transformStyle: "preserve-3d" }}
+      className="relative h-[320px] overflow-visible"
+      style={{ rotateX, rotateY, transformPerspective: 900, transformStyle: "preserve-3d" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="w-full h-full">{children}</div>
+      <motion.div
+        className="w-full h-full"
+        animate={{
+          y: floatY,
+          rotateZ: floatRotate,
+        }}
+        transition={{
+          duration: 5 + index * 0.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        {children}
+      </motion.div>
     </motion.div>
   );
 }
