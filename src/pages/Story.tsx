@@ -81,31 +81,37 @@ function ValueCard({ value, index }: { value: typeof values[0]; index: number })
           }}
         />
 
-        {/* Unique accent gradient per card */}
-        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${accents[index]} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+        {/* Unique accent gradient per card — always visible */}
+        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${accents[index]} opacity-40 group-hover:opacity-100 transition-opacity duration-700`} />
 
-        {/* Animated corner accent */}
+        {/* Animated corner accent — always breathing */}
         <motion.div
-          className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/[0.08] blur-2xl"
-          animate={{ scale: hovered ? 1.5 : 1, opacity: hovered ? 0.6 : 0.2 }}
-          transition={{ duration: 0.5 }}
+          className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/[0.06] blur-2xl"
+          animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 3 + index * 0.5, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Top accent line */}
+        {/* Secondary ambient orb bottom-left */}
+        <motion.div
+          className="absolute -bottom-8 -left-8 w-24 h-24 rounded-full bg-primary/[0.04] blur-xl"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: 4 + index * 0.3, repeat: Infinity, ease: "easeInOut", delay: index * 0.4 }}
+        />
+
+        {/* Top accent line — always partially visible */}
         <motion.div 
-          className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-primary/60 to-transparent z-10"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: hovered ? 1 : 0 }}
+          className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-primary/40 to-transparent z-10"
+          animate={{ scaleX: hovered ? 1 : 0.4, opacity: hovered ? 1 : 0.6 }}
           transition={{ duration: 0.4 }}
         />
 
         {/* Content */}
         <div className="relative z-10 p-7">
-          {/* Large index number as background element */}
+          {/* Large index number — always visible with gentle pulse */}
           <motion.span
-            className="absolute top-3 right-5 font-display text-[72px] font-black text-foreground/[0.03] leading-none select-none"
-            animate={{ opacity: hovered ? 0.08 : 0.03 }}
-            transition={{ duration: 0.4 }}
+            className="absolute top-3 right-5 font-display text-[72px] font-black text-foreground/[0.06] leading-none select-none"
+            animate={{ opacity: [0.04, 0.08, 0.04] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: index * 0.6 }}
           >
             0{index + 1}
           </motion.span>
@@ -113,16 +119,17 @@ function ValueCard({ value, index }: { value: typeof values[0]; index: number })
           {/* Icon with animated ring */}
           <div className="relative mb-6">
             <motion.div
-              className="w-12 h-12 rounded-xl bg-primary/[0.1] border border-primary/[0.15] flex items-center justify-center text-primary shadow-[0_0_24px_hsl(142_80%_45%/0.1)]"
-              animate={{ rotate: hovered ? 8 : 0, scale: hovered ? 1.1 : 1 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              className="w-12 h-12 rounded-xl bg-primary/[0.1] border border-primary/[0.15] flex items-center justify-center text-primary shadow-[0_0_24px_hsl(142_80%_45%/0.12)]"
+              animate={{ rotate: hovered ? 8 : 0, scale: hovered ? 1.1 : 1, y: [0, -2, 0] }}
+              transition={{ rotate: { type: "spring", stiffness: 300 }, scale: { type: "spring", stiffness: 300 }, y: { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.3 } }}
             >
               {value.icon}
             </motion.div>
+            {/* Always-pulsing ring */}
             <motion.div
-              className="absolute inset-0 rounded-xl border border-primary/25"
-              animate={hovered ? { scale: [1, 1.6, 1.6], opacity: [0.5, 0, 0] } : { scale: 1, opacity: 0 }}
-              transition={{ duration: 1.2, repeat: hovered ? Infinity : 0 }}
+              className="absolute inset-0 rounded-xl border border-primary/20"
+              animate={{ scale: [1, 1.5, 1.5], opacity: [0.4, 0, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.5 }}
             />
           </div>
 
@@ -131,11 +138,11 @@ function ValueCard({ value, index }: { value: typeof values[0]; index: number })
           </h3>
           <p className="text-sm text-muted-foreground/80 leading-relaxed">{value.desc}</p>
 
-          {/* Bottom decorative line */}
+          {/* Bottom decorative line — always partially visible */}
           <motion.div
             className="mt-5 h-[1px] bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"
-            initial={{ scaleX: 0, originX: 0 }}
-            animate={{ scaleX: hovered ? 1 : 0.3 }}
+            animate={{ scaleX: hovered ? 1 : 0.5 }}
+            style={{ originX: 0 }}
             transition={{ duration: 0.5 }}
           />
         </div>
