@@ -33,57 +33,57 @@ export default function Header() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "glass-card border-b border-border/60 py-3"
+            ? "bg-background/70 backdrop-blur-xl border-b border-border/30 py-3"
             : "bg-transparent py-5"
         }`}
       >
         <div className="section-container flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <img src={logo} alt="ScaleGiga logo" className="w-10 h-10 object-contain mix-blend-screen" />
+          {/* Logo – Left */}
+          <Link to="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="relative w-9 h-9 flex items-center justify-center">
+              <img src={logo} alt="ScaleGiga logo" className="w-9 h-9 object-contain mix-blend-screen" />
             </div>
-            <span className="font-display font-bold text-xl tracking-tight text-foreground">
+            <span className="font-display font-bold text-lg tracking-tight text-foreground">
               Scale<span className="text-gradient-primary">Giga</span>
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Desktop nav – Center */}
+          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => {
               const active = location.pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  className={`relative text-[14px] font-medium tracking-wide transition-colors duration-200 group ${
                     active
-                      ? "text-primary bg-electric-50"
-                      : "text-white hover:text-white/80 hover:bg-muted"
+                      ? "text-primary"
+                      : "text-foreground/60 hover:text-foreground"
                   }`}
                 >
                   {link.label}
-                  {active && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-primary"
-                    />
-                  )}
+                  {/* Hover underline */}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1.5px] bg-primary rounded-full transition-all duration-300 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
                 </Link>
               );
             })}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* CTA – Right */}
+          <div className="hidden md:flex items-center">
             <Link
               to="/contact"
-              className="btn-glow magnetic-hover inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white font-display transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-primary text-primary-foreground text-[13px] font-bold font-display shadow-[0_2px_12px_hsl(142_80%_45%/0.3)] hover:shadow-[0_4px_24px_hsl(142_80%_45%/0.5)] hover:-translate-y-0.5 transition-all duration-300"
             >
               Start a Project
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
                 <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
@@ -108,7 +108,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.22 }}
-            className="fixed inset-x-0 top-[72px] z-40 glass-card border-b border-border/60 px-6 py-6 md:hidden"
+            className="fixed inset-x-0 top-[64px] z-40 bg-background/95 backdrop-blur-xl border-b border-border/30 px-6 py-6 md:hidden"
           >
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => {
@@ -119,7 +119,7 @@ export default function Header() {
                     to={link.href}
                     className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
                       active
-                        ? "text-primary bg-electric-50"
+                        ? "text-primary bg-primary/[0.06]"
                         : "text-foreground hover:bg-muted"
                     }`}
                   >
@@ -129,7 +129,7 @@ export default function Header() {
               })}
               <Link
                 to="/contact"
-                className="btn-glow mt-2 text-center py-3 rounded-xl text-sm font-semibold text-white font-display"
+                className="mt-2 text-center py-3 rounded-lg bg-gradient-primary text-primary-foreground text-sm font-bold font-display"
               >
                 Start a Project →
               </Link>

@@ -3,8 +3,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Zap, Globe, BarChart3, Palette, Bot, Star, ChevronRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCard from "@/components/AnimatedCard";
-import { HeroIllustration, ProcessIllustration, WebAppIllustration, AdsIllustration, AIIllustration, WorkIllustration } from "@/components/Illustrations";
+import { ProcessIllustration, WebAppIllustration } from "@/components/Illustrations";
 import { useRef } from "react";
+import HeroDashboard from "@/components/HeroDashboard";
 
 const services = [
   {
@@ -95,111 +96,132 @@ export default function Index() {
     offset: ["start start", "end start"],
   });
   const heroParallaxY = useTransform(heroScroll, [0, 1], [0, -80]);
-  const heroBgScale = useTransform(heroScroll, [0, 1], [1, 1.15]);
 
   return (
     <main>
       {/* ── HERO ── */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-28 sm:pt-24 pb-6">
-        {/* Background with parallax */}
-        <motion.div className="absolute inset-0 dot-pattern opacity-40" style={{ y: heroParallaxY }} />
+      <section ref={heroRef} className="relative min-h-[105vh] flex items-center overflow-hidden pt-32 pb-12">
+        {/* Animated grid background */}
+        <motion.div className="absolute inset-0 grid-pattern opacity-[0.04]" style={{ y: heroParallaxY }} />
+        
+        {/* Noise texture */}
+        <div className="absolute inset-0 noise-overlay pointer-events-none opacity-20" />
+        
+        {/* Radial glow behind right side */}
+        <div className="absolute top-1/2 right-[15%] -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-[100px]" />
         <motion.div
-          className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-primary/[0.08] via-primary-deep/[0.04] to-transparent blur-3xl -translate-y-1/3 translate-x-1/3"
-          style={{ scale: heroBgScale }}
-          animate={{ rotate: [0, 5, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-primary/[0.06] to-primary-glow/[0.03] blur-3xl translate-y-1/2 -translate-x-1/4"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
+          className="absolute top-1/3 right-[20%] w-[400px] h-[400px] rounded-full bg-primary/[0.04] blur-[80px]"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
+        
+        {/* Subtle ambient glow left */}
+        <motion.div
+          className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-primary/[0.03] blur-[60px]"
+          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          {/* Left */}
-          <div>
+        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          {/* Left – Messaging */}
+          <div className="lg:pl-2">
             <motion.div
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.08] border border-primary/20 text-primary text-xs font-semibold font-display uppercase tracking-widest mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/15 text-primary text-[11px] font-semibold font-display uppercase tracking-[0.2em] mb-10"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Digital Growth Agency
+              Digital Systems Lab
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-tight text-foreground mb-7"
+              className="font-display text-[clamp(2.5rem,5.5vw,5.25rem)] font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-10"
             >
-              We Build Digital{" "}
-              <span className="text-gradient">Systems That</span>{" "}
-              Scale Brands
+              We Engineer Digital{" "}
+              <span className="relative inline-block">
+                Systems
+                <motion.span
+                  className="absolute bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-primary to-primary-glow rounded-full"
+                  initial={{ scaleX: 0, originX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 1, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                />
+              </span>{" "}
+              That{" "}
+              <span className="text-gradient">Scale</span>{" "}
+              Brands.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl"
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-[17px] text-foreground/60 leading-[1.7] mb-10 max-w-[540px]"
             >
-              High-performance websites, apps, marketing, AI automation, and creative — built to drive measurable growth for ambitious brands.
+              High-performance websites, growth infrastructure, AI automation and performance marketing — engineered for measurable scale.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
               className="flex flex-wrap gap-4"
             >
-              <Link to="/work" className="btn-glow magnetic-hover inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold text-white font-display">
-                View Our Work
-                <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
-                  <ArrowRight size={17} />
-                </motion.span>
-              </Link>
-              <Link to="/contact" className="btn-outline-electric magnetic-hover inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl text-base font-semibold font-display">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-gradient-primary text-primary-foreground text-[15px] font-bold font-display shadow-[0_4px_24px_hsl(142_80%_45%/0.35),inset_0_1px_0_hsl(142_90%_60%/0.3)] hover:shadow-[0_8px_40px_hsl(142_80%_45%/0.5)] hover:-translate-y-0.5 transition-all duration-300"
+              >
                 Start a Project
-                <ChevronRight size={17} />
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg border border-border/60 text-foreground/80 text-[15px] font-semibold font-display hover:bg-primary/[0.06] hover:border-primary/30 hover:text-foreground transition-all duration-300"
+              >
+                View Case Studies
+                <ChevronRight size={16} />
               </Link>
             </motion.div>
 
-            {/* Metrics */}
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-8 pt-6 border-t border-border/60"
+            {/* Trust line */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="text-[11px] font-display uppercase tracking-[0.15em] text-muted-foreground/60 mt-7"
             >
-              {metrics.map((m) => (
-                <motion.div key={m.label} variants={staggerItem}>
-                  <div className="font-display text-2xl font-bold text-foreground">{m.value}</div>
-                  <div className="text-xs text-muted-foreground mt-1 leading-tight">{m.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
+              Trusted by 50+ growth-focused brands
+            </motion.p>
           </div>
 
-          {/* Right – Illustration with 3D hover */}
+          {/* Right – Premium Dashboard Visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotateY: -5 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative h-[320px] sm:h-[420px] lg:h-[600px]"
-            style={{ perspective: 800 }}
+            initial={{ opacity: 0, scale: 0.95, x: 30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="relative h-[360px] sm:h-[420px] lg:h-[520px]"
           >
-            <motion.div
-              className="w-full h-full"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <HeroIllustration />
-            </motion.div>
+            <HeroDashboard />
           </motion.div>
         </div>
 
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          transition={{ delay: 2 }}
+        >
+          <motion.div
+            className="w-[1px] h-8 bg-gradient-to-b from-transparent via-primary/40 to-transparent"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
       </section>
 
       {/* ── SERVICES OVERVIEW ── */}
@@ -360,11 +382,11 @@ export default function Index() {
 
           <ScrollReveal variant="scale">
             <AnimatedCard className="rounded-3xl border border-border/60 overflow-hidden shadow-md-electric p-8 bg-gradient-hero">
-              <div className="h-[280px] md:h-[360px]">
-                <WorkIllustration />
+              <div className="h-[280px] md:h-[360px] flex items-center justify-center">
+                <HeroDashboard />
               </div>
             </AnimatedCard>
-      </ScrollReveal>
+          </ScrollReveal>
         </div>
       </section>
 
