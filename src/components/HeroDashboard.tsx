@@ -12,7 +12,7 @@ export default function HeroDashboard() {
       <motion.div
         className="relative w-full h-full"
         animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
         {/* Main dashboard container */}
         <div className="relative w-full h-full rounded-2xl border border-border/40 bg-card/80 backdrop-blur-xl overflow-hidden shadow-lg-electric">
@@ -37,7 +37,7 @@ export default function HeroDashboard() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
               className="col-span-1 rounded-xl border border-border/30 bg-muted/30 p-3.5 flex flex-col justify-between"
             >
               <div>
@@ -57,14 +57,14 @@ export default function HeroDashboard() {
                   strokeWidth="1.5"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, delay: 0.8, ease: "easeOut" }}
+                  transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                 />
                 <motion.path
                   d="M0 20 Q10 18 16 14 T32 10 T48 6 T64 8 T80 2 V24 H0 Z"
                   fill="url(#sparkGrad)"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0.3 }}
-                  transition={{ delay: 2.5, duration: 0.5 }}
+                  transition={{ delay: 1.2, duration: 0.3 }}
                 />
                 <defs>
                   <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
@@ -79,7 +79,7 @@ export default function HeroDashboard() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
               className="col-span-2 rounded-xl border border-border/30 bg-muted/30 p-3.5"
             >
               <div className="flex items-center justify-between mb-3">
@@ -98,7 +98,7 @@ export default function HeroDashboard() {
                     }}
                     initial={{ height: 0 }}
                     animate={{ height: `${val}%` }}
-                    transition={{ delay: 1 + i * 0.06, duration: 0.4, ease: "easeOut" }}
+                    transition={{ delay: 0.4 + i * 0.03, duration: 0.25, ease: "easeOut" }}
                   />
                 ))}
               </div>
@@ -113,7 +113,7 @@ export default function HeroDashboard() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.5 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
               className="col-span-1 rounded-xl border border-border/30 bg-muted/30 p-3.5 flex flex-col justify-between"
             >
               <div className="text-[9px] font-display uppercase tracking-wider text-muted-foreground mb-1">ROAS</div>
@@ -123,7 +123,7 @@ export default function HeroDashboard() {
                   className="h-full rounded-full bg-gradient-to-r from-primary to-primary-glow"
                   initial={{ width: 0 }}
                   animate={{ width: "82%" }}
-                  transition={{ delay: 1.4, duration: 0.8, ease: "easeOut" }}
+                  transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
                 />
               </div>
             </motion.div>
@@ -132,7 +132,7 @@ export default function HeroDashboard() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.5 }}
+              transition={{ delay: 0.5, duration: 0.3 }}
               className="col-span-1 rounded-xl border border-border/30 bg-muted/30 p-3.5"
             >
               <div className="text-[9px] font-display uppercase tracking-wider text-muted-foreground mb-2">AI Workflows</div>
@@ -142,7 +142,7 @@ export default function HeroDashboard() {
                     <motion.div
                       className="w-1.5 h-1.5 rounded-full bg-primary"
                       animate={{ opacity: [0.4, 1, 0.4] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                      transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
                     />
                     <span className="text-[10px] text-foreground/70 font-medium">{label}</span>
                   </div>
@@ -154,7 +154,7 @@ export default function HeroDashboard() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4, duration: 0.5 }}
+              transition={{ delay: 0.6, duration: 0.3 }}
               className="col-span-1 rounded-xl border border-primary/20 bg-primary/[0.04] p-3.5 flex flex-col items-center justify-center"
             >
               <div className="text-[9px] font-display uppercase tracking-wider text-muted-foreground mb-2">Performance</div>
@@ -170,7 +170,7 @@ export default function HeroDashboard() {
                     strokeDasharray="88"
                     initial={{ strokeDashoffset: 88 }}
                     animate={{ strokeDashoffset: 88 * 0.02 }}
-                    transition={{ delay: 1.6, duration: 1.2, ease: "easeOut" }}
+                    transition={{ delay: 0.7, duration: 0.7, ease: "easeOut" }}
                   />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -187,7 +187,7 @@ export default function HeroDashboard() {
         className="absolute -left-4 top-1/4 glass-card rounded-xl px-3 py-2 border border-primary/[0.15] z-10 hidden sm:block"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0, y: [0, -4, 0] }}
-        transition={{ opacity: { delay: 2 }, x: { delay: 2 }, y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+        transition={{ opacity: { delay: 0.8 }, x: { delay: 0.8 }, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
       >
         <div className="text-[9px] text-muted-foreground font-medium">ROAS</div>
         <div className="font-display font-bold text-sm text-primary">4.8x</div>
@@ -197,7 +197,7 @@ export default function HeroDashboard() {
         className="absolute -right-3 bottom-1/4 glass-card rounded-xl px-3 py-2 border border-primary/[0.15] z-10 hidden sm:block"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0, y: [0, 6, 0] }}
-        transition={{ opacity: { delay: 2.3 }, x: { delay: 2.3 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }}
+        transition={{ opacity: { delay: 1 }, x: { delay: 1 }, y: { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 } }}
       >
         <div className="text-[9px] text-muted-foreground font-medium">Conversions</div>
         <div className="font-display font-bold text-sm text-primary">+187%</div>
