@@ -182,9 +182,9 @@ export default function HeroDashboard() {
         </div>
       </motion.div>
 
-      {/* Floating metric badges */}
+      {/* Floating metric badges - hidden on small mobile */}
       <motion.div
-        className="absolute -left-4 top-1/4 glass-card rounded-xl px-3 py-2 border border-primary/[0.15] z-10"
+        className="absolute -left-4 top-1/4 glass-card rounded-xl px-3 py-2 border border-primary/[0.15] z-10 hidden sm:block"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0, y: [0, -4, 0] }}
         transition={{ opacity: { delay: 2 }, x: { delay: 2 }, y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
@@ -194,7 +194,7 @@ export default function HeroDashboard() {
       </motion.div>
 
       <motion.div
-        className="absolute -right-3 bottom-1/4 glass-card rounded-xl px-3 py-2 border border-primary/[0.15] z-10"
+        className="absolute -right-3 bottom-1/4 glass-card rounded-xl px-3 py-2 border border-primary/[0.15] z-10 hidden sm:block"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0, y: [0, 6, 0] }}
         transition={{ opacity: { delay: 2.3 }, x: { delay: 2.3 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }}

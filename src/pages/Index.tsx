@@ -46,7 +46,7 @@ export default function Index() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section ref={heroRef} className="relative min-h-[105vh] flex items-center overflow-hidden pt-32 pb-12">
+      <section ref={heroRef} className="relative min-h-screen lg:min-h-[105vh] flex items-center overflow-hidden pt-24 sm:pt-32 pb-8 sm:pb-12">
         {/* Animated grid background */}
         <motion.div className="absolute inset-0 grid-pattern opacity-[0.04]" style={{ y: heroParallaxY }} />
         
@@ -68,7 +68,7 @@ export default function Index() {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-20 items-center">
           {/* Left – Messaging */}
           <div className="lg:pl-2">
             <motion.div
@@ -85,7 +85,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-[clamp(2.5rem,5.5vw,5.25rem)] font-bold leading-[1.05] tracking-[-0.03em] text-foreground mb-10"
+              className="font-display text-[clamp(2rem,5.5vw,5.25rem)] font-bold leading-[1.08] tracking-[-0.03em] text-foreground mb-6 sm:mb-10"
             >
               We Engineer Digital{" "}
               <span className="relative inline-block">
@@ -106,7 +106,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-[17px] text-foreground/60 leading-[1.7] mb-10 max-w-[540px]"
+              className="text-[15px] sm:text-[17px] text-foreground/60 leading-[1.7] mb-6 sm:mb-10 max-w-[540px]"
             >
               High-performance websites, growth infrastructure, AI automation and performance marketing — engineered for measurable scale.
             </motion.p>
@@ -172,8 +172,8 @@ export default function Index() {
 
       <ServiceShowcase />
       {/* ── WHY SCALEGIGA ── */}
-      <section className="py-8">
-        <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <section className="py-6 sm:py-8">
+        <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-20 items-center">
           <ScrollReveal variant="scale">
             <div className="relative h-[380px] rounded-3xl overflow-hidden bg-gradient-hero border border-border/40 shadow-md-electric p-8">
               <motion.div
@@ -273,7 +273,7 @@ export default function Index() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 sm:py-28 bg-foreground relative overflow-hidden">
+      <section className="py-12 sm:py-28 bg-foreground relative overflow-hidden">
         <motion.div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-3xl"
           animate={{ scale: [1, 1.15, 1] }}

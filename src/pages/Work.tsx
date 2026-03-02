@@ -63,7 +63,7 @@ export default function Work() {
       </section>
 
       {/* Overview */}
-      <section className="py-20">
+      <section className="py-12 sm:py-20">
         <div className="section-container">
           <ScrollReveal>
             <div className="rounded-3xl border border-border/60 overflow-hidden shadow-card p-8 md:p-12 bg-card">
@@ -76,7 +76,7 @@ export default function Work() {
       </section>
 
       {/* Core Capabilities — horizontal scroll cards */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-12 sm:py-20 bg-muted/30">
         <div className="section-container">
           <ScrollReveal className="text-center mb-14">
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Core Capabilities</p>
@@ -117,9 +117,9 @@ export default function Work() {
       </section>
 
       {/* Project cards — stacked rows with reveal animation */}
-      <section className="py-24">
+      <section className="py-12 sm:py-24">
         <div className="section-container">
-          <ScrollReveal className="text-center mb-14">
+          <ScrollReveal className="text-center mb-10 sm:mb-14">
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Recent Results</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
               Real Brands. Real{" "}
@@ -156,7 +156,7 @@ export default function Work() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-foreground">
+      <section className="py-12 sm:py-24 bg-foreground">
         <div className="section-container text-center">
           <ScrollReveal>
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Next Could Be You</p>

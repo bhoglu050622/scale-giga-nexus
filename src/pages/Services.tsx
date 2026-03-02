@@ -196,9 +196,9 @@ export default function Services() {
 
       {/* Services */}
       {services.map((service, i) => (
-        <section key={service.id} id={service.id} className={`py-20 ${i % 2 === 1 ? "bg-muted/30" : ""}`}>
+        <section key={service.id} id={service.id} className={`py-12 sm:py-20 ${i % 2 === 1 ? "bg-muted/30" : ""}`}>
           <div className="section-container">
-            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "lg:grid-flow-dense" : ""}`}>
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center ${i % 2 === 1 ? "lg:grid-flow-dense" : ""}`}>
               <ScrollReveal direction={i % 2 === 1 ? "right" : "left"} className={i % 2 === 1 ? "lg:col-start-2" : ""}>
                 <ServiceVisual index={i}>
                   {service.illustration}
@@ -236,7 +236,7 @@ export default function Services() {
       ))}
 
       {/* CTA */}
-      <section className="py-24 bg-foreground">
+      <section className="py-12 sm:py-24 bg-foreground">
         <div className="section-container text-center">
           <ScrollReveal>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-5">

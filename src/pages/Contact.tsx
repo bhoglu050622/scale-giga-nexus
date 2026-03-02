@@ -32,7 +32,7 @@ export default function Contact() {
   return (
     <main className="pt-24">
       {/* Hero */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-12 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
         <motion.div
           className="absolute top-0 left-0 w-[500px] h-[400px] rounded-full bg-primary/[0.04] blur-3xl -translate-x-1/3 -translate-y-1/2"
@@ -55,8 +55,8 @@ export default function Contact() {
       </section>
 
       {/* Contact grid */}
-      <section className="py-16">
-        <div className="section-container grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-10 sm:py-16">
+        <div className="section-container grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
           {/* Left info */}
           <div className="space-y-6">
             <ScrollReveal>
