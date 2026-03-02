@@ -46,7 +46,7 @@ export default function Index() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section ref={heroRef} className="relative min-h-screen lg:min-h-[105vh] flex items-center overflow-hidden pt-24 sm:pt-32 pb-8 sm:pb-12">
+      <section ref={heroRef} className="relative min-h-[auto] lg:min-h-[100vh] flex items-center overflow-hidden pt-24 sm:pt-28 pb-6 sm:pb-8">
         {/* Animated grid background */}
         <motion.div className="absolute inset-0 grid-pattern opacity-[0.04]" style={{ y: heroParallaxY }} />
         
@@ -75,7 +75,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/15 text-primary text-[11px] font-semibold font-display uppercase tracking-[0.2em] mb-10"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/15 text-primary text-[11px] font-semibold font-display uppercase tracking-[0.2em] mb-6"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Digital Growth Agency
@@ -85,7 +85,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-[clamp(2rem,5.5vw,5.25rem)] font-bold leading-[1.08] tracking-[-0.03em] text-foreground mb-6 sm:mb-10"
+              className="font-display text-[clamp(1.85rem,4.2vw,3.75rem)] font-bold leading-[1.08] tracking-[-0.03em] text-foreground mb-5 sm:mb-7"
             >
               We Engineer Digital{" "}
               <span className="relative inline-block">
@@ -106,7 +106,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-[15px] sm:text-[17px] text-foreground/60 leading-[1.7] mb-6 sm:mb-10 max-w-[540px]"
+              className="text-[14px] sm:text-[15px] text-foreground/60 leading-[1.65] mb-5 sm:mb-7 max-w-[500px]"
             >
               High-performance websites, growth infrastructure, AI automation and performance marketing — engineered for measurable scale.
             </motion.p>
@@ -138,7 +138,7 @@ export default function Index() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="text-[11px] font-display uppercase tracking-[0.15em] text-muted-foreground/60 mt-7"
+              className="text-[11px] font-display uppercase tracking-[0.15em] text-muted-foreground/60 mt-5"
             >
               Trusted by 50+ growth-focused brands
             </motion.p>
@@ -149,7 +149,7 @@ export default function Index() {
             initial={{ opacity: 0, scale: 0.95, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative h-[360px] sm:h-[420px] lg:h-[520px]"
+            className="relative h-[280px] sm:h-[320px] lg:h-[400px]"
           >
             <HeroDashboard />
           </motion.div>
