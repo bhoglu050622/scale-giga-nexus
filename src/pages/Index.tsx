@@ -46,7 +46,7 @@ export default function Index() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section ref={heroRef} className="relative min-h-[auto] lg:min-h-[100vh] flex items-center overflow-hidden pt-24 sm:pt-28 pb-6 sm:pb-8">
+      <section ref={heroRef} className="relative min-h-[100svh] flex items-center overflow-hidden pt-20 sm:pt-28 pb-4 sm:pb-8">
         {/* Animated grid background */}
         <motion.div className="absolute inset-0 grid-pattern opacity-[0.04]" style={{ y: heroParallaxY }} />
         
@@ -68,14 +68,14 @@ export default function Index() {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-20 items-center">
+        <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-16 lg:gap-20 items-center">
           {/* Left – Messaging */}
           <div className="lg:pl-2">
             <motion.div
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/15 text-primary text-[11px] font-semibold font-display uppercase tracking-[0.2em] mb-6"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/[0.06] border border-primary/15 text-primary text-[11px] font-semibold font-display uppercase tracking-[0.2em] mb-6"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Digital Growth Agency
@@ -85,7 +85,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-[clamp(1.85rem,4.2vw,3.75rem)] font-bold leading-[1.08] tracking-[-0.03em] text-foreground mb-5 sm:mb-7"
+              className="font-display text-[clamp(1.7rem,4.2vw,3.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-foreground mb-3 sm:mb-7"
             >
               We Engineer Digital{" "}
               <span className="relative inline-block">
@@ -106,7 +106,7 @@ export default function Index() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-[14px] sm:text-[15px] text-foreground/60 leading-[1.65] mb-5 sm:mb-7 max-w-[500px]"
+              className="text-[13px] sm:text-[15px] text-foreground/60 leading-[1.55] mb-4 sm:mb-7 max-w-[500px]"
             >
               High-performance websites, growth infrastructure, AI automation and performance marketing — engineered for measurable scale.
             </motion.p>
@@ -115,21 +115,21 @@ export default function Index() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-3"
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-gradient-primary text-primary-foreground text-[15px] font-bold font-display shadow-[0_4px_24px_hsl(142_80%_45%/0.35),inset_0_1px_0_hsl(142_90%_60%/0.3)] hover:shadow-[0_8px_40px_hsl(142_80%_45%/0.5)] hover:-translate-y-0.5 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-gradient-primary text-primary-foreground text-[14px] sm:text-[15px] font-bold font-display shadow-[0_4px_24px_hsl(142_80%_45%/0.35),inset_0_1px_0_hsl(142_90%_60%/0.3)] hover:shadow-[0_8px_40px_hsl(142_80%_45%/0.5)] hover:-translate-y-0.5 transition-all duration-300"
               >
                 Start a Project
-                <ArrowRight size={16} />
+                <ArrowRight size={15} />
               </Link>
               <Link
                 to="/work"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg border border-border/60 text-foreground/80 text-[15px] font-semibold font-display hover:bg-primary/[0.06] hover:border-primary/30 hover:text-foreground transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg border border-border/60 text-foreground/80 text-[14px] sm:text-[15px] font-semibold font-display hover:bg-primary/[0.06] hover:border-primary/30 hover:text-foreground transition-all duration-300"
               >
                 View Case Studies
-                <ChevronRight size={16} />
+                <ChevronRight size={15} />
               </Link>
             </motion.div>
 
@@ -138,7 +138,7 @@ export default function Index() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="text-[11px] font-display uppercase tracking-[0.15em] text-muted-foreground/60 mt-5"
+              className="text-[11px] font-display uppercase tracking-[0.15em] text-muted-foreground/60 mt-3 sm:mt-5"
             >
               Trusted by 50+ growth-focused brands
             </motion.p>
@@ -149,15 +149,15 @@ export default function Index() {
             initial={{ opacity: 0, scale: 0.95, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative h-[280px] sm:h-[320px] lg:h-[400px]"
+            className="relative h-[220px] sm:h-[320px] lg:h-[400px]"
           >
             <HeroDashboard />
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - desktop only */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 hidden lg:flex"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ delay: 2 }}
