@@ -30,7 +30,7 @@ export function WebAppIllustration() {
       {/* Cursor blink */}
       <motion.rect x="34" y="118" width="2" height="12" rx="1" fill="hsl(142 80% 45%)"
         animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 1.2, repeat: Infinity }}
+        transition={{ duration: 0.6, repeat: Infinity }}
       />
       
       {/* Performance panel */}
@@ -252,7 +252,7 @@ export function AIIllustration() {
       {/* Pulse ring */}
       <motion.rect x="210" y="110" width="56" height="56" rx="14" fill="none" stroke="hsl(142 80% 45% / 0.3)" strokeWidth="1"
         animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0, 0.5] }}
-        transition={{ duration: 2.5, repeat: Infinity }}
+        transition={{ duration: 1.2, repeat: Infinity }}
         style={{ transformOrigin: "238px 138px" }}
       />
       
