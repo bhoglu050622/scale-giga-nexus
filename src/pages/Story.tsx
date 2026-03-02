@@ -90,7 +90,7 @@ export default function Story() {
   return (
     <main className="pt-24">
       {/* Hero */}
-      <section className="relative py-12 sm:py-20 overflow-hidden">
+      <section className="relative py-10 sm:py-14 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
         <motion.div
           className="absolute top-0 left-0 w-[600px] h-[400px] rounded-full bg-primary/[0.05] blur-3xl -translate-x-1/3 -translate-y-1/2"
@@ -124,7 +124,7 @@ export default function Story() {
       </section>
 
       {/* Story content */}
-      <section className="py-16">
+      <section className="py-10">
         <div className="section-container max-w-3xl mx-auto">
           <ScrollReveal>
             <div className="prose prose-gray max-w-none">
@@ -143,9 +143,9 @@ export default function Story() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-10 bg-muted/30">
         <div className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <ScrollReveal delay={0}>
               <div className="p-10 rounded-3xl bg-gradient-primary text-primary-foreground shadow-lg relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 rounded-full bg-primary-foreground/5 blur-2xl" />
@@ -176,9 +176,9 @@ export default function Story() {
       </section>
 
       {/* Values - glassmorphism cards with spotlight */}
-      <section className="py-12 sm:py-24">
+       <section className="py-10 sm:py-16">
         <div className="section-container">
-          <ScrollReveal className="text-center mb-10 sm:mb-16">
+          <ScrollReveal className="text-center mb-8 sm:mb-10">
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Values</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
               The Principles That{" "}
@@ -189,7 +189,7 @@ export default function Story() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {values.map((v, i) => (
               <ValueCard key={v.title} value={v} index={i} />
             ))}
@@ -198,7 +198,7 @@ export default function Story() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 sm:py-24">
+      <section className="py-10 sm:py-16">
         <div className="section-container text-center max-w-2xl mx-auto">
           <ScrollReveal>
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-5">Ready to Partner With Us?</p>
