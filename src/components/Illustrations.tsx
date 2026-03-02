@@ -411,47 +411,45 @@ export function StoryIllustration() {
 export function WorkIllustration() {
   return (
     <svg viewBox="0 0 500 280" fill="none" className="w-full h-full">
-      <rect x="10" y="10" width="480" height="260" rx="14" fill="hsl(0 0% 5%)" stroke="hsl(142 80% 45% / 0.2)" strokeWidth="1.5" />
-      
       {/* Header */}
-      <text x="30" y="40" fontSize="12" fill="hsl(0 0% 75%)" fontFamily="Space Grotesk" fontWeight="600">Client Results Dashboard</text>
-      <rect x="400" y="24" width="70" height="22" rx="6" fill="hsl(142 80% 45% / 0.1)" stroke="hsl(142 80% 45% / 0.3)" strokeWidth="1" />
-      <text x="435" y="38" textAnchor="middle" fontSize="7" fill="hsl(142 80% 45%)" fontWeight="600" fontFamily="Space Grotesk">● LIVE</text>
+      <text x="20" y="28" fontSize="12" fill="hsl(0 0% 75%)" fontFamily="Space Grotesk" fontWeight="600">Client Results Dashboard</text>
+      <rect x="390" y="12" width="70" height="22" rx="6" fill="hsl(142 80% 45% / 0.1)" stroke="hsl(142 80% 45% / 0.3)" strokeWidth="1" />
+      <text x="425" y="26" textAnchor="middle" fontSize="7" fill="hsl(142 80% 45%)" fontWeight="600" fontFamily="Space Grotesk">● LIVE</text>
       
       {/* KPI cards */}
       {[
-        { x: 30, label: "REVENUE GROWTH", value: "+3.2x", sub: "YoY increase" },
-        { x: 150, label: "LEADS / MONTH", value: "120+", sub: "Qualified leads" },
-        { x: 270, label: "AVG ROAS", value: "4.8x", sub: "Across campaigns" },
-        { x: 390, label: "CLIENT SCORE", value: "98%", sub: "Satisfaction" },
+        { x: 20, label: "REVENUE GROWTH", value: "+3.2x", sub: "YoY increase" },
+        { x: 140, label: "LEADS / MONTH", value: "120+", sub: "Qualified leads" },
+        { x: 260, label: "AVG ROAS", value: "4.8x", sub: "Across campaigns" },
+        { x: 380, label: "CLIENT SCORE", value: "98%", sub: "Satisfaction" },
       ].map((kpi, i) => (
         <g key={i}>
-          <rect x={kpi.x} y="55" width="105" height="55" rx="8" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1" />
-          <text x={kpi.x + 12} y="72" fontSize="6" fill="hsl(0 0% 40%)" fontFamily="Space Grotesk">{kpi.label}</text>
-          <text x={kpi.x + 12} y="94" fontSize="20" fontWeight="800" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">{kpi.value}</text>
-          <text x={kpi.x + 12} y="106" fontSize="6" fill="hsl(0 0% 35%)" fontFamily="Space Grotesk">{kpi.sub}</text>
+          <rect x={kpi.x} y="43" width="105" height="55" rx="8" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1" />
+          <text x={kpi.x + 12} y="60" fontSize="6" fill="hsl(0 0% 40%)" fontFamily="Space Grotesk">{kpi.label}</text>
+          <text x={kpi.x + 12} y="82" fontSize="20" fontWeight="800" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">{kpi.value}</text>
+          <text x={kpi.x + 12} y="94" fontSize="6" fill="hsl(0 0% 35%)" fontFamily="Space Grotesk">{kpi.sub}</text>
         </g>
       ))}
       
       {/* Growth chart */}
-      <rect x="30" y="125" width="300" height="130" rx="8" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.1)" strokeWidth="1" />
-      <text x="42" y="145" fontSize="7" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">Revenue Trend</text>
+      <rect x="20" y="113" width="300" height="130" rx="8" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.1)" strokeWidth="1" />
+      <text x="32" y="133" fontSize="7" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">Revenue Trend</text>
       {/* Grid lines */}
-      {[160, 180, 200, 220].map((y, i) => (
-        <line key={i} x1="42" y1={y} x2="320" y2={y} stroke="hsl(0 0% 10%)" strokeWidth="0.5" />
+      {[148, 168, 188, 208].map((y, i) => (
+        <line key={i} x1="32" y1={y} x2="310" y2={y} stroke="hsl(0 0% 10%)" strokeWidth="0.5" />
       ))}
       {/* Area fill */}
-      <path d="M50,240 L80,232 L120,225 L160,218 L200,200 L240,185 L280,170 L310,158 L310,240 Z" fill="hsl(142 80% 45% / 0.06)" />
+      <path d="M40,228 L70,220 L110,213 L150,206 L190,188 L230,173 L270,158 L300,146 L300,228 Z" fill="hsl(142 80% 45% / 0.06)" />
       {/* Line */}
-      <polyline points="50,240 80,232 120,225 160,218 200,200 240,185 280,170 310,158" stroke="hsl(142 80% 45%)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <polyline points="40,228 70,220 110,213 150,206 190,188 230,173 270,158 300,146" stroke="hsl(142 80% 45%)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       {/* Dots */}
-      {[[50,240],[120,225],[200,200],[280,170],[310,158]].map(([x,y],i) => (
+      {[[40,228],[110,213],[190,188],[270,158],[300,146]].map(([x,y],i) => (
         <circle key={i} cx={x} cy={y} r="3.5" fill="hsl(142 80% 45%)" stroke="hsl(0 0% 5%)" strokeWidth="2" />
       ))}
       
       {/* Side stats */}
-      <rect x="345" y="125" width="140" height="130" rx="8" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.1)" strokeWidth="1" />
-      <text x="358" y="145" fontSize="7" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">By Channel</text>
+      <rect x="335" y="113" width="140" height="130" rx="8" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.1)" strokeWidth="1" />
+      <text x="348" y="133" fontSize="7" fill="hsl(0 0% 50%)" fontFamily="Space Grotesk">By Channel</text>
       {[
         { label: "Google Ads", pct: 35, w: 42 },
         { label: "Meta Ads", pct: 28, w: 34 },
@@ -459,10 +457,10 @@ export function WorkIllustration() {
         { label: "Direct", pct: 15, w: 18 },
       ].map((ch, i) => (
         <g key={i}>
-          <text x="358" y={168 + i * 26} fontSize="6" fill="hsl(0 0% 55%)" fontFamily="Space Grotesk">{ch.label}</text>
-          <rect x="358" y={172 + i * 26} width="110" height="5" rx="2.5" fill="hsl(0 0% 12%)" />
-          <rect x="358" y={172 + i * 26} width={ch.w * 2.6} height="5" rx="2.5" fill="hsl(142 80% 45%)" fillOpacity={0.4 + i * 0.1} />
-          <text x="472" y={178 + i * 26} textAnchor="end" fontSize="5" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">{ch.pct}%</text>
+          <text x="348" y={156 + i * 26} fontSize="6" fill="hsl(0 0% 55%)" fontFamily="Space Grotesk">{ch.label}</text>
+          <rect x="348" y={160 + i * 26} width="110" height="5" rx="2.5" fill="hsl(0 0% 12%)" />
+          <rect x="348" y={160 + i * 26} width={ch.w * 2.6} height="5" rx="2.5" fill="hsl(142 80% 45%)" fillOpacity={0.4 + i * 0.1} />
+          <text x="462" y={166 + i * 26} textAnchor="end" fontSize="5" fill="hsl(142 80% 45%)" fontFamily="Space Grotesk">{ch.pct}%</text>
         </g>
       ))}
     </svg>
@@ -473,35 +471,34 @@ export function WorkIllustration() {
 export function ContactIllustration() {
   return (
     <svg viewBox="0 0 300 180" fill="none" className="w-full h-full">
-      <rect x="10" y="10" width="280" height="160" rx="12" fill="hsl(0 0% 5%)" stroke="hsl(142 80% 45% / 0.2)" strokeWidth="1.5" />
-      
       {/* Signal rings */}
-      <circle cx="150" cy="90" r="50" fill="none" stroke="hsl(142 80% 45% / 0.06)" strokeWidth="1" />
-      <circle cx="150" cy="90" r="35" fill="none" stroke="hsl(142 80% 45% / 0.1)" strokeWidth="1" />
-      <circle cx="150" cy="90" r="20" fill="none" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1.5" />
+      <circle cx="150" cy="90" r="70" fill="none" stroke="hsl(142 80% 45% / 0.04)" strokeWidth="1" />
+      <circle cx="150" cy="90" r="55" fill="none" stroke="hsl(142 80% 45% / 0.06)" strokeWidth="1" />
+      <circle cx="150" cy="90" r="40" fill="none" stroke="hsl(142 80% 45% / 0.1)" strokeWidth="1" />
+      <circle cx="150" cy="90" r="25" fill="none" stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1.5" />
       
       {/* Center icon */}
-      <circle cx="150" cy="90" r="10" fill="hsl(142 80% 45% / 0.15)" stroke="hsl(142 80% 45%)" strokeWidth="1.5" />
-      <circle cx="150" cy="90" r="3" fill="hsl(142 80% 45%)" />
+      <circle cx="150" cy="90" r="12" fill="hsl(142 80% 45% / 0.15)" stroke="hsl(142 80% 45%)" strokeWidth="1.5" />
+      <circle cx="150" cy="90" r="4" fill="hsl(142 80% 45%)" />
       
       {/* Connection points */}
       {[
-        { x: 60, y: 50, label: "Email" },
-        { x: 240, y: 50, label: "Call" },
-        { x: 60, y: 130, label: "Chat" },
-        { x: 240, y: 130, label: "Meet" },
+        { x: 55, y: 40, label: "Email" },
+        { x: 245, y: 40, label: "Call" },
+        { x: 55, y: 140, label: "Chat" },
+        { x: 245, y: 140, label: "Meet" },
       ].map((pt, i) => (
         <g key={i}>
           <line x1="150" y1="90" x2={pt.x} y2={pt.y} stroke="hsl(142 80% 45% / 0.15)" strokeWidth="1" strokeDasharray="3 3" />
-          <circle cx={pt.x} cy={pt.y} r="14" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.3)" strokeWidth="1.5" />
-          <text x={pt.x} y={pt.y + 3} textAnchor="middle" fontSize="5.5" fill="hsl(142 80% 45%)" fontWeight="600" fontFamily="Space Grotesk">{pt.label}</text>
+          <circle cx={pt.x} cy={pt.y} r="18" fill="hsl(0 0% 7%)" stroke="hsl(142 80% 45% / 0.3)" strokeWidth="1.5" />
+          <text x={pt.x} y={pt.y + 4} textAnchor="middle" fontSize="7" fill="hsl(142 80% 45%)" fontWeight="600" fontFamily="Space Grotesk">{pt.label}</text>
         </g>
       ))}
       
       {/* Status */}
-      <rect x="115" y="145" width="70" height="16" rx="4" fill="hsl(142 80% 45% / 0.08)" stroke="hsl(142 80% 45% / 0.2)" strokeWidth="1" />
-      <circle cx="128" cy="153" r="3" fill="hsl(142 80% 45%)" />
-      <text x="135" y="156" fontSize="5.5" fill="hsl(142 60% 55%)" fontFamily="Space Grotesk">Online — 24/7</text>
+      <rect x="110" y="160" width="80" height="18" rx="5" fill="hsl(142 80% 45% / 0.08)" stroke="hsl(142 80% 45% / 0.2)" strokeWidth="1" />
+      <circle cx="124" cy="169" r="3" fill="hsl(142 80% 45%)" />
+      <text x="132" y="172" fontSize="6" fill="hsl(142 60% 55%)" fontFamily="Space Grotesk">Online — 24/7</text>
     </svg>
   );
 }

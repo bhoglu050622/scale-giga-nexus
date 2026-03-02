@@ -66,11 +66,14 @@ export default function Work() {
       <section className="py-12 sm:py-20">
         <div className="section-container">
           <ScrollReveal>
-            <div className="rounded-3xl border border-border/60 overflow-hidden shadow-card p-8 md:p-12 bg-card">
-              <div className="h-[280px] md:h-[380px]">
-                <WorkIllustration />
-              </div>
-            </div>
+            <motion.div
+              className="h-[280px] md:h-[420px]"
+              animate={{ y: [0, -8, 0], rotateX: [0, 1, 0], rotateY: [0, -1.5, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              style={{ perspective: 800, transformStyle: "preserve-3d" }}
+            >
+              <WorkIllustration />
+            </motion.div>
           </ScrollReveal>
         </div>
       </section>

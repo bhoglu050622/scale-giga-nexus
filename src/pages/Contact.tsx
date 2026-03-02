@@ -60,9 +60,14 @@ export default function Contact() {
           {/* Left info */}
           <div className="space-y-6">
             <ScrollReveal>
-              <div className="h-[200px] rounded-2xl overflow-hidden bg-card border border-border/40 shadow-card p-6">
+              <motion.div
+                className="h-[260px] sm:h-[280px]"
+                animate={{ y: [0, -6, 0], rotateX: [0, 1.5, 0], rotateY: [0, -2, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                style={{ perspective: 800, transformStyle: "preserve-3d" }}
+              >
                 <ContactIllustration />
-              </div>
+              </motion.div>
             </ScrollReveal>
 
             {contactInfo.map((info, i) => (
