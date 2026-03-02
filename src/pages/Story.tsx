@@ -34,7 +34,7 @@ const values = [
 ];
 
 
-// Glassmorphism value card with hover glow
+// Visionary value card — unique editorial style
 function ValueCard({ value, index }: { value: typeof values[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
@@ -48,39 +48,97 @@ function ValueCard({ value, index }: { value: typeof values[0]; index: number })
     mouseY.set((e.clientY - rect.top) / rect.height);
   };
 
-  const glowX = useSpring(useTransform(mouseX, [0, 1], [0, 100]), { stiffness: 200, damping: 25 });
-  const glowY = useSpring(useTransform(mouseY, [0, 1], [0, 100]), { stiffness: 200, damping: 25 });
+  const rotateX = useSpring(useTransform(mouseY, [0, 1], [6, -6]), { stiffness: 150, damping: 20 });
+  const rotateY = useSpring(useTransform(mouseX, [0, 1], [-6, 6]), { stiffness: 150, damping: 20 });
+
+  // Each card gets a unique accent gradient
+  const accents = [
+    "from-emerald-400/20 via-teal-500/10 to-transparent",
+    "from-amber-400/20 via-orange-500/10 to-transparent",
+    "from-cyan-400/20 via-blue-500/10 to-transparent",
+    "from-violet-400/20 via-purple-500/10 to-transparent",
+    "from-rose-400/20 via-pink-500/10 to-transparent",
+  ];
 
   return (
     <ScrollReveal delay={index * 0.08}>
       <motion.div
         ref={ref}
-        className="relative h-full p-7 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/40 overflow-hidden group cursor-default"
+        className="relative h-full overflow-hidden group cursor-default"
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        whileHover={{ y: -4, borderColor: "hsl(142 80% 45% / 0.3)" }}
+        style={{ rotateX, rotateY, transformPerspective: 800, transformStyle: "preserve-3d" }}
+        whileHover={{ scale: 1.03 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
       >
-        {/* Glow spotlight */}
-        <motion.div
-          className="pointer-events-none absolute inset-0"
+        {/* Layered background with depth */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-card/90 to-card/40 backdrop-blur-md" 
           style={{
-            background: useTransform(
-              [glowX, glowY],
-              ([x, y]) => `radial-gradient(300px circle at ${x}% ${y}%, hsl(142 80% 45% / ${hovered ? 0.08 : 0}), transparent 60%)`
-            ),
+            boxShadow: hovered 
+              ? "0 25px 60px -12px hsl(142 80% 45% / 0.12), 0 0 0 1px hsl(142 80% 45% / 0.15), inset 0 1px 0 hsl(0 0% 100% / 0.06)"
+              : "0 8px 32px -8px hsl(0 0% 0% / 0.25), 0 0 0 1px hsl(0 0% 100% / 0.04), inset 0 1px 0 hsl(0 0% 100% / 0.03)",
           }}
         />
-        
+
+        {/* Unique accent gradient per card */}
+        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${accents[index]} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+
+        {/* Animated corner accent */}
         <motion.div
-          className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/[0.15] flex items-center justify-center text-primary mb-5"
-          whileHover={{ rotate: 8, scale: 1.1 }}
-        >
-          {value.icon}
-        </motion.div>
-        <h3 className="font-display font-semibold text-foreground mb-3">{value.title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">{value.desc}</p>
+          className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/[0.08] blur-2xl"
+          animate={{ scale: hovered ? 1.5 : 1, opacity: hovered ? 0.6 : 0.2 }}
+          transition={{ duration: 0.5 }}
+        />
+
+        {/* Top accent line */}
+        <motion.div 
+          className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-primary/60 to-transparent z-10"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: hovered ? 1 : 0 }}
+          transition={{ duration: 0.4 }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 p-7">
+          {/* Large index number as background element */}
+          <motion.span
+            className="absolute top-3 right-5 font-display text-[72px] font-black text-foreground/[0.03] leading-none select-none"
+            animate={{ opacity: hovered ? 0.08 : 0.03 }}
+            transition={{ duration: 0.4 }}
+          >
+            0{index + 1}
+          </motion.span>
+
+          {/* Icon with animated ring */}
+          <div className="relative mb-6">
+            <motion.div
+              className="w-12 h-12 rounded-xl bg-primary/[0.1] border border-primary/[0.15] flex items-center justify-center text-primary shadow-[0_0_24px_hsl(142_80%_45%/0.1)]"
+              animate={{ rotate: hovered ? 8 : 0, scale: hovered ? 1.1 : 1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {value.icon}
+            </motion.div>
+            <motion.div
+              className="absolute inset-0 rounded-xl border border-primary/25"
+              animate={hovered ? { scale: [1, 1.6, 1.6], opacity: [0.5, 0, 0] } : { scale: 1, opacity: 0 }}
+              transition={{ duration: 1.2, repeat: hovered ? Infinity : 0 }}
+            />
+          </div>
+
+          <h3 className="font-display font-bold text-lg text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+            {value.title}
+          </h3>
+          <p className="text-sm text-muted-foreground/80 leading-relaxed">{value.desc}</p>
+
+          {/* Bottom decorative line */}
+          <motion.div
+            className="mt-5 h-[1px] bg-gradient-to-r from-primary/40 via-primary/10 to-transparent"
+            initial={{ scaleX: 0, originX: 0 }}
+            animate={{ scaleX: hovered ? 1 : 0.3 }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
       </motion.div>
     </ScrollReveal>
   );
