@@ -10,6 +10,7 @@ interface Service {
   desc: string;
   stat: string;
   statLabel: string;
+  accent: string;
 }
 
 const services: Service[] = [
@@ -19,6 +20,7 @@ const services: Service[] = [
     desc: "Positioning, messaging, and identity that create long-term brand equity.",
     stat: "96%",
     statLabel: "Brand Recall Lift",
+    accent: "from-emerald-500/20 to-teal-500/10",
   },
   {
     icon: <Globe size={20} />,
@@ -26,6 +28,7 @@ const services: Service[] = [
     desc: "Fast, scalable, conversion-focused digital products that turn visitors into customers.",
     stat: "3.2s",
     statLabel: "Avg. Load Time",
+    accent: "from-cyan-500/20 to-blue-500/10",
   },
   {
     icon: <Palette size={20} />,
@@ -33,6 +36,7 @@ const services: Service[] = [
     desc: "Compelling visual identities and brand systems that make you unforgettable.",
     stat: "40+",
     statLabel: "Brand Systems Built",
+    accent: "from-violet-500/20 to-purple-500/10",
   },
   {
     icon: <Bot size={20} />,
@@ -40,6 +44,7 @@ const services: Service[] = [
     desc: "Intelligent systems that eliminate manual work and scale your customer experience.",
     stat: "70%",
     statLabel: "Manual Work Reduced",
+    accent: "from-amber-500/20 to-orange-500/10",
   },
   {
     icon: <Zap size={20} />,
@@ -47,6 +52,7 @@ const services: Service[] = [
     desc: "Strategic content, community building, and engagement that grows your brand.",
     stat: "2.8x",
     statLabel: "Engagement Growth",
+    accent: "from-rose-500/20 to-pink-500/10",
   },
   {
     icon: <BarChart3 size={20} />,
@@ -54,6 +60,7 @@ const services: Service[] = [
     desc: "Data-driven ad campaigns across Google, Meta, and LinkedIn that drive measurable ROI.",
     stat: "4.8x",
     statLabel: "Average ROAS",
+    accent: "from-emerald-500/20 to-lime-500/10",
   },
 ];
 
@@ -73,21 +80,28 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     mouseY.set(e.clientY - rect.top);
   };
 
-  // Alternate layout: even cards have stat on left, odd on right
   const isEven = index % 2 === 0;
 
   return (
-    <ScrollReveal delay={index * 0.08} direction={isEven ? "left" : "right"}>
+    <ScrollReveal delay={index * 0.06} direction={isEven ? "left" : "right"}>
       <Link to="/services" className="block group">
         <motion.div
           ref={ref}
-          className="relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 backdrop-blur-sm transition-colors duration-500 hover:border-primary/40"
+          className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm transition-all duration-500"
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          whileHover={{ scale: 1.015 }}
+          whileHover={{ scale: 1.02, y: -4 }}
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
+          style={{
+            boxShadow: hovered
+              ? "0 20px 60px -12px hsl(142 80% 45% / 0.15), 0 0 0 1px hsl(142 80% 45% / 0.2), inset 0 1px 0 hsl(0 0% 100% / 0.05)"
+              : "0 4px 24px -4px hsl(0 0% 0% / 0.2), 0 0 0 1px hsl(0 0% 100% / 0.04), inset 0 1px 0 hsl(0 0% 100% / 0.03)",
+          }}
         >
+          {/* Gradient accent overlay */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+
           {/* Spotlight glow that follows cursor */}
           <motion.div
             className="pointer-events-none absolute -inset-px z-0"
@@ -95,30 +109,27 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
               background: useTransform(
                 [spotlightX, spotlightY],
                 ([x, y]) =>
-                  `radial-gradient(400px circle at ${x}px ${y}px, hsl(142 80% 45% / 0.08), transparent 60%)`
+                  `radial-gradient(350px circle at ${x}px ${y}px, hsl(142 80% 45% / 0.1), transparent 60%)`
               ),
             }}
           />
 
-          {/* Animated border glow on hover */}
+          {/* Top accent line */}
           <motion.div
-            className="pointer-events-none absolute inset-0 rounded-2xl z-0"
-            animate={{
-              boxShadow: hovered
-                ? "inset 0 0 0 1px hsl(142 80% 45% / 0.2), 0 0 40px hsl(142 80% 45% / 0.06)"
-                : "inset 0 0 0 1px transparent, 0 0 0px transparent",
-            }}
+            className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: hovered ? 1 : 0 }}
             transition={{ duration: 0.4 }}
           />
 
           <div className="relative z-10 flex items-stretch">
             {/* Content side */}
-            <div className="flex-1 p-7 md:p-8">
-              <div className="flex items-start gap-4 mb-5">
-                {/* Icon with animated ring */}
+            <div className="flex-1 p-6 md:p-7">
+              <div className="flex items-start gap-4 mb-4">
+                {/* Icon with glass effect */}
                 <div className="relative shrink-0">
                   <motion.div
-                    className="w-11 h-11 rounded-xl bg-primary/[0.08] border border-primary/[0.15] flex items-center justify-center text-primary"
+                    className="w-11 h-11 rounded-xl bg-primary/[0.1] border border-primary/[0.12] flex items-center justify-center text-primary shadow-[0_0_20px_hsl(142_80%_45%/0.1)]"
                     whileHover={{ rotate: 8, scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
@@ -127,16 +138,16 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
                   {/* Pulse ring */}
                   <motion.div
                     className="absolute inset-0 rounded-xl border border-primary/20"
-                    animate={hovered ? { scale: [1, 1.4, 1.4], opacity: [0.5, 0, 0] } : {}}
-                    transition={{ duration: 1.5, repeat: Infinity }}
+                    animate={hovered ? { scale: [1, 1.5, 1.5], opacity: [0.6, 0, 0] } : {}}
+                    transition={{ duration: 1.2, repeat: Infinity }}
                   />
                 </div>
 
                 <div>
-                  <h3 className="font-display font-bold text-[17px] text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-display font-bold text-[17px] text-foreground mb-1.5 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground/80 leading-relaxed">
                     {service.desc}
                   </p>
                 </div>
@@ -144,8 +155,8 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
               {/* Animated CTA */}
               <motion.div
-                className="flex items-center gap-1.5 text-xs font-semibold text-primary"
-                animate={{ x: hovered ? 4 : 0, opacity: hovered ? 1 : 0.5 }}
+                className="flex items-center gap-1.5 text-xs font-semibold text-primary/70 group-hover:text-primary transition-colors"
+                animate={{ x: hovered ? 4 : 0 }}
                 transition={{ duration: 0.3 }}
               >
                 Explore service
@@ -155,24 +166,24 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
               </motion.div>
             </div>
 
-            {/* Stat side - vertical accent */}
-            <div className="hidden sm:flex flex-col items-center justify-center w-[140px] border-l border-border/30 bg-primary/[0.02] relative overflow-hidden">
+            {/* Stat side */}
+            <div className="hidden sm:flex flex-col items-center justify-center w-[130px] border-l border-border/20 bg-primary/[0.02] relative overflow-hidden">
               {/* Animated scan line */}
               <motion.div
-                className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
+                className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
                 animate={{ top: ["0%", "100%", "0%"] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
               />
 
               <motion.div
                 className="text-center"
-                animate={{ scale: hovered ? 1.08 : 1 }}
+                animate={{ scale: hovered ? 1.1 : 1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="font-display font-bold text-2xl text-gradient mb-1">
                   {service.stat}
                 </div>
-                <div className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-medium">
+                <div className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/70 font-medium">
                   {service.statLabel}
                 </div>
               </motion.div>
