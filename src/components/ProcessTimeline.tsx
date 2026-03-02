@@ -117,6 +117,15 @@ export default function ProcessTimeline() {
           />
         </div>
 
+        {/* Animated dot travelling down the vertical line */}
+        {isInView && (
+          <motion.div
+            className="absolute left-[22px] w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(142_80%_45%/0.6)] z-20"
+            animate={{ top: ["0%", "95%"], opacity: [1, 1, 0] }}
+            transition={{ duration: 2.5, delay: 1, ease: "easeInOut", repeat: Infinity, repeatDelay: 3 }}
+          />
+        )}
+
         <div className="space-y-8">
           {steps.map((step, i) => {
             const Icon = step.icon;
