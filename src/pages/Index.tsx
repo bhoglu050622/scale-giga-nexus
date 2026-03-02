@@ -242,17 +242,6 @@ export default function Index() {
         />
 
         <div className="section-container relative z-10">
-          <ScrollReveal variant="blur" className="text-center mb-12">
-            <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Process</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
-              Strategize. Build. Launch.{" "}
-              <span className="text-gradient">Grow.</span>
-            </h2>
-            <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed">
-              A proven five-phase system that turns business goals into measurable digital results.
-            </p>
-          </ScrollReveal>
-
           <ProcessTimeline />
         </div>
       </section>
