@@ -246,32 +246,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ── FEATURED WORK PREVIEW ── */}
-      <section className="py-8">
-        <div className="section-container">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-            <div>
-              <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Selected Work</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
-                Built to Convert.<br />
-                <span className="text-gradient">Designed to Scale.</span>
-              </h2>
-            </div>
-            <Link to="/work" className="btn-outline-electric magnetic-hover inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold font-display shrink-0">
-              View All Work <ArrowRight size={15} />
-            </Link>
-          </ScrollReveal>
-
-          <ScrollReveal variant="scale">
-            <AnimatedCard className="rounded-3xl border border-border/60 overflow-hidden shadow-md-electric p-8 bg-gradient-hero">
-              <div className="h-[280px] md:h-[360px] flex items-center justify-center">
-                <HeroDashboard />
-              </div>
-            </AnimatedCard>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
       <section className="py-12 sm:py-28 bg-foreground relative overflow-hidden">
         <motion.div
