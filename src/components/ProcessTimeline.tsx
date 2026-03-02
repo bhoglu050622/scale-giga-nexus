@@ -24,7 +24,7 @@ export default function ProcessTimeline() {
       {/* Desktop: Horizontal timeline */}
       <div className="hidden md:block relative">
         {/* Connecting line */}
-        <div className="absolute top-[72px] left-[10%] right-[10%] h-[2px] bg-border/30">
+        <div className="absolute top-[36px] left-[10%] right-[10%] h-[2px] bg-border/30">
           <motion.div
             className="h-full bg-gradient-to-r from-primary/60 via-primary to-primary/60"
             initial={{ scaleX: 0 }}
@@ -37,7 +37,7 @@ export default function ProcessTimeline() {
         {/* Animated data pulse travelling along the line */}
         {isInView && (
           <motion.div
-            className="absolute top-[68px] left-[10%] w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(142_80%_45%/0.6)]"
+            className="absolute top-[32px] left-[10%] w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(142_80%_45%/0.6)]"
             animate={{ left: ["10%", "90%"], opacity: [1, 1, 0] }}
             transition={{ duration: 1.5, delay: 0.8, ease: "linear", repeat: Infinity, repeatDelay: 2 }}
           />
@@ -105,14 +105,6 @@ export default function ProcessTimeline() {
           />
         </div>
 
-        {/* Animated dot travelling down the vertical line */}
-        {isInView && (
-          <motion.div
-            className="absolute left-[22px] w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(142_80%_45%/0.6)] z-20"
-            animate={{ top: ["0%", "95%"], opacity: [1, 1, 0] }}
-            transition={{ duration: 1.5, delay: 0.8, ease: "linear", repeat: Infinity, repeatDelay: 2 }}
-          />
-        )}
 
         <div className="space-y-8">
           {steps.map((step, i) => {
