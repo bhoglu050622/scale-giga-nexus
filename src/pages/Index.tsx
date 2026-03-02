@@ -3,7 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Zap, Globe, BarChart3, Palette, Bot, Star, ChevronRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCard from "@/components/AnimatedCard";
-import { ProcessIllustration, WebAppIllustration } from "@/components/Illustrations";
+import { WebAppIllustration } from "@/components/Illustrations";
+import ProcessTimeline from "@/components/ProcessTimeline";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import { useRef } from "react";
 import HeroDashboard from "@/components/HeroDashboard";
@@ -22,29 +23,6 @@ const whyItems = [
   "Transparent reporting and clear KPIs",
   "Long-term partnership mindset",
   "Proven results across industries",
-];
-
-const processSteps = [
-  {
-    num: "01",
-    title: "Strategy",
-    desc: "We audit your market, competitors, and digital presence to define a clear growth roadmap.",
-  },
-  {
-    num: "02",
-    title: "Build",
-    desc: "Our team executes with precision — design, development, content, and systems.",
-  },
-  {
-    num: "03",
-    title: "Launch",
-    desc: "We deploy, test, and go live — ensuring every element performs from day one.",
-  },
-  {
-    num: "04",
-    title: "Scale",
-    desc: "We optimize, iterate, and expand — turning early results into compounding growth.",
-  },
 ];
 
 const staggerContainer = {
@@ -264,37 +242,18 @@ export default function Index() {
         />
 
         <div className="section-container relative z-10">
-          <ScrollReveal variant="blur" className="text-center mb-16">
+          <ScrollReveal variant="blur" className="text-center mb-12">
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">Our Process</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-5">
-              Strategy → Build →<br />
-              <span className="text-gradient">Launch → Scale</span>
+              Strategize. Build. Launch.{" "}
+              <span className="text-gradient">Grow.</span>
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto text-base leading-relaxed">
-              A repeatable four-phase system that turns business goals into measurable digital results.
+              A proven five-phase system that turns business goals into measurable digital results.
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processSteps.map((step, i) => (
-              <ScrollReveal key={step.num} delay={i * 0.1} variant="scale">
-                <AnimatedCard className="relative p-7 rounded-3xl border border-border bg-muted/50 backdrop-blur-sm hover:border-primary/30 transition-colors group">
-                  <div className="text-4xl font-display font-bold text-gradient mb-5 opacity-60">{step.num}</div>
-                  <h3 className="font-display font-bold text-foreground text-lg mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
-                  <div className="absolute bottom-7 right-7 w-8 h-8 rounded-xl border border-border flex items-center justify-center group-hover:border-primary/40 transition-all group-hover:rotate-45 duration-300">
-                    <ChevronRight size={14} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                  </div>
-                </AnimatedCard>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal className="mt-16" variant="parallax">
-            <div className="h-24">
-              <ProcessIllustration />
-            </div>
-          </ScrollReveal>
+          <ProcessTimeline />
         </div>
       </section>
 
