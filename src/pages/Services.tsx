@@ -182,8 +182,7 @@ function ServiceVisual({ children, index }: { children: React.ReactNode; index: 
 export default function Services() {
   return (
     <main className="pt-24">
-      {/* Hero */}
-      <section className="relative py-20 overflow-hidden">
+         <section className="relative py-14 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-[0.03]" />
         <motion.div
           className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/[0.06] blur-3xl -translate-y-1/2 translate-x-1/2"
@@ -193,11 +192,11 @@ export default function Services() {
         <div className="section-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 24, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.7 }}>
             <p className="text-xs font-semibold font-display uppercase tracking-widest text-primary mb-4">What We Offer</p>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
               Digital Services Built for{" "}
               <span className="text-gradient">Real Growth</span>
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed mb-10">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed mb-7">
               We're a full-service digital growth agency offering everything from website development and performance marketing to AI automation and brand strategy.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
@@ -213,9 +212,9 @@ export default function Services() {
 
       {/* Services */}
       {services.map((service, i) => (
-        <section key={service.id} id={service.id} className={`py-12 sm:py-20 ${i % 2 === 1 ? "bg-muted/30" : ""}`}>
+        <section key={service.id} id={service.id} className={`py-8 sm:py-12 ${i % 2 === 1 ? "bg-muted/30" : ""}`}>
           <div className="section-container">
-            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center ${i % 2 === 1 ? "lg:grid-flow-dense" : ""}`}>
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center ${i % 2 === 1 ? "lg:grid-flow-dense" : ""}`}>
               <ScrollReveal direction={i % 2 === 1 ? "right" : "left"} className={i % 2 === 1 ? "lg:col-start-2" : ""}>
                 <ServiceVisual index={i}>
                   {service.illustration}
@@ -226,9 +225,9 @@ export default function Services() {
                 <ScrollReveal direction={i % 2 === 1 ? "left" : "right"}>
                   <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">{service.title}</h2>
                   <p className="font-display text-base text-muted-foreground mb-5 font-medium">{service.subtitle}</p>
-                  <p className="text-muted-foreground leading-relaxed mb-8 text-sm">{service.intro}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-6 text-sm">{service.intro}</p>
 
-                  <ul className="space-y-2.5 mb-8">
+                  <ul className="space-y-2 mb-6">
                     {service.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-3">
                         <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-primary/[0.08]">
