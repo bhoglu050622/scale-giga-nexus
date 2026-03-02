@@ -224,9 +224,6 @@ export default function Services() {
 
               <div className={i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
                 <ScrollReveal direction={i % 2 === 1 ? "left" : "right"}>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold font-display uppercase tracking-widest mb-5 border border-primary/30 bg-primary/[0.06] text-primary">
-                    {service.label}
-                  </div>
                   <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3 leading-tight">{service.title}</h2>
                   <p className="font-display text-base text-muted-foreground mb-5 font-medium">{service.subtitle}</p>
                   <p className="text-muted-foreground leading-relaxed mb-8 text-sm">{service.intro}</p>
