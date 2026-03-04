@@ -87,7 +87,7 @@ export default function Index() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display text-[clamp(2.05rem,4.2vw,3.75rem)] font-bold leading-[1.1] tracking-[-0.03em] text-foreground mb-3 sm:mb-7"
             >
-              We Engineer Digital{" "}
+              Digital{" "}
               <span className="relative inline-block">
                 Systems
                 <motion.span
@@ -97,9 +97,8 @@ export default function Index() {
                   transition={{ delay: 1, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 />
               </span>{" "}
-              That{" "}
-              <span className="text-gradient">Scale</span>{" "}
-              Brands.
+              Built to{" "}
+              <span className="text-gradient">Scale</span>.
             </motion.h1>
 
             <motion.p
