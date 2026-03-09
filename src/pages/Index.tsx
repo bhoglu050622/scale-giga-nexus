@@ -98,7 +98,7 @@ export default function Index() {
                 />
               </span>{" "}
               Built to{" "}
-              <span className="text-gradient">Scale</span>
+              <span className="text-gradient">Scale</span>.
             </motion.h1>
 
             <motion.p
