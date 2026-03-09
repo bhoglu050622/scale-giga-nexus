@@ -132,15 +132,6 @@ export default function Index() {
               </Link>
             </motion.div>
 
-            {/* Trust line */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="text-[11px] font-display uppercase tracking-[0.15em] text-muted-foreground/60 mt-3 sm:mt-5"
-            >
-              Trusted by 50+ growth-focused brands
-            </motion.p>
           </div>
 
           {/* Right – Premium Dashboard Visual */}
